@@ -87,11 +87,11 @@ const DAYS = [
     id: 5, label: 'G5', city: 'Aswan', date: '16 ott', fullDate: '16 ottobre 2026',
     treatment: 'Soft All Inclusive a bordo',
     mapCenter: [32.89, 24.05], zoom: 11,
-    highlight: 'Imbarco sulla motonave Gemma: il Nilo diventa casa per tre notti. Tempio di Philae e la magia di una feluca al tramonto.',
+    highlight: 'Imbarco sulla motonave (Gemma o Nile Monarch): il Nilo diventa casa per tre notti. Tempio di Philae e la magia di una feluca al tramonto.',
     activities: [
       { icon: '🚌', name: 'Abu Simbel→Aswan', desc: 'Rientro ad Aswan in pullman' },
       { icon: '🏛️', name: 'Alta Diga di Aswan', desc: 'Una delle grandi opere ingegneristiche del XX secolo' },
-      { icon: '🚢', name: 'Imbarco motonave Gemma', desc: 'Check-in a bordo sul Nilo' },
+      { icon: '🚢', name: 'Imbarco motonave (Gemma o Nile Monarch)', desc: 'Check-in a bordo sul Nilo' },
       { icon: '🍽️', name: 'Pranzo a bordo', desc: 'Prima di tanti pasti con vista sul Nilo' },
       { icon: '🏛️', name: 'Tempio di File (Philae)', desc: 'Trasferita dall\'UNESCO pietra per pietra — ultime iscrizioni geroglifiche' },
       { icon: '⛵', name: 'Feluca al tramonto', desc: 'Navigazione tradizionale tra le rapide del Nilo' }
@@ -99,7 +99,7 @@ const DAYS = [
     poi: [
       { id: 'dam', name: 'Alta Diga di Aswan', type: 'site', lng: 32.8677, lat: 23.9700 },
       { id: 'philae', name: 'Tempio di File (Philae)', type: 'site', lng: 32.8846, lat: 24.0268 },
-      { id: 'nile_ship', name: 'Imbarco Motonave Aswan', type: 'ship', lng: 32.8998, lat: 24.0889 }
+      { id: 'nile_ship', name: 'Imbarco Motonave Aswan (Gemma / Nile Monarch)', type: 'ship', lng: 32.8998, lat: 24.0889 }
     ]
   },
   {
@@ -108,7 +108,7 @@ const DAYS = [
     mapCenter: [32.87, 24.70], zoom: 9,
     highlight: 'Navigazione sul Nilo tra i templi di Kom Ombo e Edfu — il meglio conservato d\'Egitto, scoperto nel 1800 sotto la sabbia.',
     activities: [
-      { icon: '🚢', name: 'Navigazione sul Nilo', desc: 'Da Aswan verso nord, paesaggi desertici e oasi' },
+      { icon: '🚢', name: 'Navigazione sul Nilo (Gemma / Nile Monarch)', desc: 'Da Aswan verso nord, paesaggi desertici e oasi' },
       { icon: '🏛️', name: 'Tempio di Kom Ombo', desc: 'Unico tempio doppio d\'Egitto: Sobek e Haroeris + Museo dei Coccodrilli' },
       { icon: '🏛️', name: 'Tempio di Edfu', desc: 'Il tempio meglio conservato d\'Egitto, scoperto nel 1800 sotto la sabbia' },
       { icon: '⚓', name: 'Arrivo a Luxor', desc: 'Ormeggio serale sulla sponda est del Nilo' },
@@ -128,7 +128,7 @@ const DAYS = [
       { icon: '🏛️', name: 'Valle dei Re', desc: '63 tombe dei faraoni del Nuovo Regno — Tutankhamon inclusa' },
       { icon: '🏛️', name: 'Deir el-Bahari / Hatshepsut', desc: 'Tempio funerario della faraona Hatshepsut, 1479 a.C.' },
       { icon: '🗿', name: 'Colossi di Memnone', desc: 'Due statue monumentali da 18 metri — simbolo della sponda ovest' },
-      { icon: '🍽️', name: 'Pranzo a bordo', desc: 'Rientro in motonave per il pranzo' },
+      { icon: '🍽️', name: 'Pranzo a bordo (Gemma / Nile Monarch)', desc: 'Rientro in motonave per il pranzo' },
       { icon: '🌅', name: 'Pomeriggio libero', desc: 'Relax o escursione facoltativa' }
     ],
     poi: [
@@ -162,41 +162,41 @@ const EXTRAS_BY_DAY = {
   1: [
     { name: 'Bar Raa Jazz', type: 'Nightlife', desc: 'Cocktail esclusivi e live jazz nel cuore di Heliopolis.', tip: 'Prenotare il tavolo — molto frequentato il weekend.', coords: [31.3300, 30.0900] },
     { name: 'Beirut Street Nightlife', type: 'Nightlife', desc: 'La movida del Cairo moderno tra bar e ristoranti libanesi.', tip: 'Attivo dalle 21 in poi.', coords: [31.2200, 30.0600] },
-    { name: 'Koshari El Tahrir', type: 'Cibo', desc: 'Il piatto nazionale egiziano: pasta, lenticchie, riso, sugo piccante. Meno di 3 USD.', tip: 'Locale iconico in Piazza Tahrir.', coords: [31.2357, 30.0444] }
+    { name: 'Koshari El Tahrir', type: 'Cibo', desc: 'Il piatto nazionale egiziano: pasta, lenticchie, riso, sugo piccante. Meno di 3 USD.', tip: 'Locale iconico in Piazza Tahrir.', coords: [31.2357, 30.0444], link: 'https://en.wikipedia.org/wiki/Kushari' }
   ],
   2: [
-    { name: 'Piramidi di Dahshur', type: 'Cultura', desc: 'La Piramide Rossa e la Piramide Spezzata — meno turisti, atmosfera autentica.', tip: 'A 10 km da Saqqara, spesso deserto.', coords: [31.2084, 29.8083] },
+    { name: 'Piramidi di Dahshur', type: 'Cultura', desc: 'La Piramide Rossa e la Piramide Spezzata — meno turisti, atmosfera autentica.', tip: 'A 10 km da Saqqara, spesso deserto.', coords: [31.2084, 29.8083], link: 'https://it.wikipedia.org/wiki/Dahshur' },
     { name: 'Tramonto a Cavallo sul Plateau', type: 'Natura', desc: 'Giro a cavallo o cammello al tramonto con le piramidi sullo sfondo.', tip: 'Contrattare il prezzo prima: circa 20-30 USD.', coords: [31.1342, 29.9792] },
     { name: 'Vista Panoramica Sud', type: 'Natura', desc: 'Il viewpoint con le tre piramidi in fila — foto imperdibile al tramonto.', tip: 'Raggiungibile in 10 min dalla Sfinge.', coords: [31.1266, 29.9742] }
   ],
   3: [
-    { name: 'Al-Muizz Street by Night', type: 'Cultura', desc: 'La via più bella della Cairo islamica illuminata di notte — UNESCO.', tip: 'Ore 19-22: atmosfera magica, meno caldo.', coords: [31.2603, 30.0512] },
-    { name: 'Caffè El-Fishawi', type: 'Cibo', desc: 'Il caffè più antico del Cairo, nel cuore di Khan el Khalili dal 1773.', tip: 'Ottima shisha e tè alla menta — non perderlo.', coords: [31.2621, 30.0472] },
+    { name: 'Al-Muizz Street by Night', type: 'Cultura', desc: 'La via più bella della Cairo islamica illuminata di notte — UNESCO.', tip: 'Ore 19-22: atmosfera magica, meno caldo.', coords: [31.2603, 30.0512], link: 'https://it.wikipedia.org/wiki/Al-Mu%27izz_li-Din_Allah_Street' },
+    { name: 'Caffè El-Fishawi', type: 'Cibo', desc: 'Il caffè più antico del Cairo, nel cuore di Khan el Khalili dal 1773.', tip: 'Ottima shisha e tè alla menta — non perderlo.', coords: [31.2621, 30.0472], link: 'https://en.wikipedia.org/wiki/El-Fishawy_Cafe' },
     { name: 'Cairo Food Tour', type: 'Cibo', desc: 'Tour culinario notturno tra i vicoli del bazaar con guida locale.', tip: 'Prenotabile su Viator, circa 35 USD a persona.', coords: [31.2625, 30.0477] }
   ],
   4: [
-    { name: 'Sound & Light Show', type: 'Cultura', desc: 'Spettacolo suoni e luci serale sui templi di Abu Simbel — narrato in italiano.', tip: 'Ore 20:00, biglietto ~25 USD.', coords: [31.6258, 22.3372] },
+    { name: 'Sound & Light Show', type: 'Cultura', desc: 'Spettacolo suoni e luci serale sui templi di Abu Simbel — narrato in italiano.', tip: 'Ore 20:00, biglietto ~25 USD.', coords: [31.6258, 22.3372], link: 'https://it.wikipedia.org/wiki/Abu_Simbel' },
     { name: 'Alba ai Templi', type: 'Natura', desc: 'I templi alle 5:30 prima dell\'apertura ufficiale — luce dorata sul lago Nasser.', tip: 'Accordarsi con la guida la sera prima.', coords: [31.6258, 22.3372] },
-    { name: 'Villaggio Nubiano Abu Simbel', type: 'Cultura', desc: 'Piccolo villaggio nubiano colorato vicino ai templi — artigianato locale.', tip: 'A piedi dai templi, 15 minuti.', coords: [31.6310, 22.3400] }
+    { name: 'Villaggio Nubiano Abu Simbel', type: 'Cultura', desc: 'Piccolo villaggio nubiano colorato vicino ai templi — artigianato locale.', tip: 'A piedi dai templi, 15 minuti.', coords: [31.6310, 22.3400], link: 'https://en.wikipedia.org/wiki/Nubian_people' }
   ],
   5: [
-    { name: 'Villaggio Nubiano Suhail Island', type: 'Cultura', desc: 'Villaggio nubiano sull\'isola Suhail — case colorate, coccodrilli domestici, ospitalità.', tip: 'In feluca da Aswan, circa 20 min.', coords: [32.8846, 24.0450] },
+    { name: 'Villaggio Nubiano Suhail Island', type: 'Cultura', desc: 'Villaggio nubiano sull\'isola Suhail — case colorate, coccodrilli domestici, ospitalità.', tip: 'In feluca da Aswan, circa 20 min.', coords: [32.8846, 24.0450], link: 'https://en.wikipedia.org/wiki/Suhail_Island' },
     { name: 'Souk delle Spezie di Aswan', type: 'Shopping', desc: 'Mercato di spezie, profumi nubiani e stoffe colorate sul Corniche.', tip: 'Karkadè (ibisco secco) e vaniglia: ottimi souvenir.', coords: [32.8998, 24.0889] },
     { name: 'Cena Panoramica Corniche', type: 'Cibo', desc: 'Ristorante sul Corniche con vista sul Nilo e le isole di Aswan al tramonto.', tip: 'El-Masri Restaurant: pesce locale eccellente.', coords: [32.8998, 24.0889] }
   ],
   6: [
-    { name: 'Museo dei Coccodrilli', type: 'Cultura', desc: 'Oltre 300 mummie di coccodrillo nel complesso di Kom Ombo — incluso nel biglietto.', tip: 'Non saltarlo: è raro e affascinante.', coords: [32.9284, 24.4522] },
+    { name: 'Museo dei Coccodrilli', type: 'Cultura', desc: 'Oltre 300 mummie di coccodrillo nel complesso di Kom Ombo — incluso nel biglietto.', tip: 'Non saltarlo: è raro e affascinante.', coords: [32.9284, 24.4522], link: 'https://it.wikipedia.org/wiki/Kom_Ombo' },
     { name: 'Aperitivo al Tramonto in Coperta', type: 'Nightlife', desc: 'Deck panoramico della motonave durante la navigazione notturna sul Nilo.', tip: 'Ora magica tra Kom Ombo e Edfu.', coords: [32.87, 24.70] },
     { name: 'Danza Nubiana a Bordo', type: 'Cultura', desc: 'Spettacolo di danza nubiana sulla motonave durante la navigazione.', tip: 'Spesso incluso nel programma serale — chiedere all\'accompagnatore.', coords: [32.87, 24.50] }
   ],
   7: [
-    { name: 'Mongolfiera all\'Alba', type: 'Natura', desc: 'Volo in mongolfiera all\'alba sulla Valle dei Re — viste spettacolari.', tip: 'Prenotare con 2+ giorni di anticipo, 70-120 USD.', coords: [32.6014, 25.7402] },
-    { name: 'Tombe dei Nobili', type: 'Cultura', desc: 'Le tombe dei visir e nobili dell\'antico Egitto — affreschi vivaci e meno turisti.', tip: 'Meno conosciute della Valle dei Re, imperdibili.', coords: [32.6074, 25.7267] },
+    { name: 'Mongolfiera all\'Alba', type: 'Natura', desc: 'Volo in mongolfiera all\'alba sulla Valle dei Re — viste spettacolari.', tip: 'Prenotare con 2+ giorni di anticipo, 70-120 USD.', coords: [32.6014, 25.7402], link: 'https://en.wikipedia.org/wiki/Hot_air_ballooning_in_Luxor' },
+    { name: 'Tombe dei Nobili', type: 'Cultura', desc: 'Le tombe dei visir e nobili dell\'antico Egitto — affreschi vivaci e meno turisti.', tip: 'Meno conosciute della Valle dei Re, imperdibili.', coords: [32.6074, 25.7267], link: 'https://en.wikipedia.org/wiki/Tombs_of_the_Nobles_(Luxor)' },
     { name: 'Pranzo a El-Gezira', type: 'Cibo', desc: 'Ristorante sull\'isola di Gezira con terrazza sul Nilo e cucina egiziana autentica.', tip: 'Pesce del Nilo e pane feteer.', coords: [32.6396, 25.6872] }
   ],
   8: [
-    { name: 'Spettacolo Suoni e Luci Karnak', type: 'Cultura', desc: 'Sound & Light show serale tra le colonne del grande colonnato di Karnak.', tip: 'Se avete un volo il giorno dopo, ottimo per la sera.', coords: [32.6573, 25.7189] },
-    { name: 'Viale delle Sfingi', type: 'Cultura', desc: '3 km di sfingi criocefale che collegano Karnak a Luxor — percorribile a piedi.', tip: 'Meglio al mattino presto o al tramonto.', coords: [32.6481, 25.7094] },
+    { name: 'Spettacolo Suoni e Luci Karnak', type: 'Cultura', desc: 'Sound & Light show serale tra le colonne del grande colonnato di Karnak.', tip: 'Se avete un volo il giorno dopo, ottimo per la sera.', coords: [32.6573, 25.7189], link: 'https://it.wikipedia.org/wiki/Karnak' },
+    { name: 'Viale delle Sfingi', type: 'Cultura', desc: '3 km di sfingi criocefale che collegano Karnak a Luxor — percorribile a piedi.', tip: 'Meglio al mattino presto o al tramonto.', coords: [32.6481, 25.7094], link: 'https://en.wikipedia.org/wiki/Avenue_of_Sphinxes' },
     { name: 'Cena sul Nilo in Dahabeya', type: 'Cibo', desc: 'Barca a vela tradizionale egiziana con cena tipica e musica dal vivo.', tip: 'Prenotabile in hotel, circa 40 USD a persona.', coords: [32.6391, 25.6997] }
   ]
 };
@@ -235,6 +235,7 @@ function renderDayPanel(dayId) {
         '<div class="dip-extra-name">' + e.name + '</div>' +
         '<div class="dip-extra-desc">' + (e.desc || '') + '</div>' +
         '<div class="dip-extra-tip">💡 ' + (e.tip || '') + '</div>' +
+        (e.link ? '<a href="' + e.link + '" target="_blank" rel="noopener" class="dip-extra-link">→ Approfondisci</a>' : '') +
         '</div>';
     });
   }
@@ -362,7 +363,7 @@ function initMap() {
       var extras = EXTRAS_BY_DAY[dayId];
       extras.forEach(function(extra) {
         var wrapper = document.createElement('div');
-        wrapper.style.cssText = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s;position:relative;z-index:1';
+        wrapper.style.cssText = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;z-index:1;pointer-events:all';
         var diamond = document.createElement('div');
         diamond.style.cssText = 'width:18px;height:18px;background:#2A7B8C;transform:rotate(45deg);border:2px solid #FAF8F3;box-shadow:0 2px 8px rgba(42,123,140,0.4);transition:transform 0.2s';
         wrapper.appendChild(diamond);
@@ -370,7 +371,12 @@ function initMap() {
         wrapper.addEventListener('mouseleave', function() { diamond.style.transform = 'rotate(45deg) scale(1)'; });
         wrapper.addEventListener('click', function() {
           new mapboxgl.Popup({ offset: 20, closeButton: true })
-            .setHTML('<div class="map-popup"><div class="map-popup-name">' + extra.name + '</div><div style="font-size:11px;color:#8B7355;margin-top:2px">' + (extra.type || '') + '</div><a href="#day-' + dayId + '" class="map-popup-link">Vedi Giorno ' + dayId + ' →</a></div>')
+            .setHTML('<div class="map-popup">' +
+              '<div class="map-popup-name">' + extra.name + '</div>' +
+              '<div style="font-size:11px;color:#8B7355;margin-top:2px">' + (extra.type || '') + '</div>' +
+              (extra.link ? '<a href="' + extra.link + '" target="_blank" rel="noopener" class="map-popup-link">Approfondisci →</a>' : '') +
+              '<a href="#day-' + dayId + '" class="map-popup-link">Vedi Giorno ' + dayId + ' →</a>' +
+              '</div>')
             .setLngLat(extra.coords)
             .addTo(map);
         });
