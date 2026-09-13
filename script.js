@@ -387,6 +387,11 @@ function initMap() {
 
     // Fit to Egypt
     map.fitBounds([[24.5, 21.8], [33.5, 31.5]], { padding: 40, duration: 1200 });
+    // Forza resize dopo montaggio (fix mobile)
+    setTimeout(function() {
+      map.resize();
+      map.fitBounds([[24.5, 21.8], [33.5, 31.5]], { padding: 40, duration: 0 });
+    }, 300);
   });
 
   initMapFilters();
@@ -422,6 +427,7 @@ function selectDay(dayId) {
   var day = DAYS.find(function(d) { return d.id === dayId; });
   if (!day) return;
   if (map) {
+    map.resize();
     map.flyTo({ center: day.mapCenter, zoom: day.zoom, duration: 1200, essential: true });
   }
 }
