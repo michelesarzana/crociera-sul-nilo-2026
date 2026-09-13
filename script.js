@@ -233,7 +233,8 @@ function renderDayPanel(dayId) {
       extrasHTML += '<div class="dip-extra-card">' +
         '<div class="dip-extra-type">' + (e.type || '') + '</div>' +
         '<div class="dip-extra-name">' + e.name + '</div>' +
-        '<div class="dip-extra-tip">' + (e.tip || e.desc || '') + '</div>' +
+        '<div class="dip-extra-desc">' + (e.desc || '') + '</div>' +
+        '<div class="dip-extra-tip">💡 ' + (e.tip || '') + '</div>' +
         '</div>';
     });
   }
@@ -340,18 +341,18 @@ function initMap() {
     DAYS.forEach(function(day) {
       day.poi.forEach(function(poi) {
         var el = document.createElement('div');
-        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:transform 0.2s;position:relative;z-index:2';
+        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:box-shadow 0.2s,border-color 0.2s;position:relative;z-index:2';
         el.textContent = poiEmoji(poi.type);
         el.title = poi.name;
-        el.addEventListener('mouseenter', function() { el.style.transform = 'scale(1.2)'; });
-        el.addEventListener('mouseleave', function() { el.style.transform = 'scale(1)'; });
+        el.addEventListener('mouseenter', function() { el.style.boxShadow = '0 4px 20px rgba(200,151,58,0.6)'; el.style.borderColor = '#C8973A'; });
+        el.addEventListener('mouseleave', function() { el.style.boxShadow = '0 2px 12px rgba(0,0,0,0.18)'; });
         el.addEventListener('click', function() {
           new mapboxgl.Popup({ offset: 20, closeButton: true })
             .setHTML('<div class="map-popup"><div class="map-popup-name">' + poi.name + '</div><a href="#day-' + day.id + '" class="map-popup-link">Vedi Giorno ' + day.id + ' →</a></div>')
             .setLngLat([poi.lng, poi.lat])
             .addTo(map);
         });
-        var marker = new mapboxgl.Marker(el).setLngLat([poi.lng, poi.lat]).addTo(map);
+        var marker = new mapboxgl.Marker({ element: el, anchor: 'center' }).setLngLat([poi.lng, poi.lat]).addTo(map);
         officialMarkers.push(marker);
       });
     });
@@ -363,17 +364,17 @@ function initMap() {
         var wrapper = document.createElement('div');
         wrapper.style.cssText = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s;position:relative;z-index:1';
         var diamond = document.createElement('div');
-        diamond.style.cssText = 'width:20px;height:20px;background:#2A7B8C;transform:rotate(45deg);border:2px solid #FAF8F3;box-shadow:0 2px 8px rgba(42,123,140,0.4)';
+        diamond.style.cssText = 'width:18px;height:18px;background:#2A7B8C;transform:rotate(45deg);border:2px solid #FAF8F3;box-shadow:0 2px 8px rgba(42,123,140,0.4);transition:transform 0.2s';
         wrapper.appendChild(diamond);
-        wrapper.addEventListener('mouseenter', function() { wrapper.style.transform = 'scale(1.2)'; });
-        wrapper.addEventListener('mouseleave', function() { wrapper.style.transform = 'scale(1)'; });
+        wrapper.addEventListener('mouseenter', function() { diamond.style.transform = 'rotate(45deg) scale(1.3)'; });
+        wrapper.addEventListener('mouseleave', function() { diamond.style.transform = 'rotate(45deg) scale(1)'; });
         wrapper.addEventListener('click', function() {
           new mapboxgl.Popup({ offset: 20, closeButton: true })
             .setHTML('<div class="map-popup"><div class="map-popup-name">' + extra.name + '</div><div style="font-size:11px;color:#8B7355;margin-top:2px">' + (extra.type || '') + '</div><a href="#day-' + dayId + '" class="map-popup-link">Vedi Giorno ' + dayId + ' →</a></div>')
             .setLngLat(extra.coords)
             .addTo(map);
         });
-        var marker = new mapboxgl.Marker(wrapper).setLngLat(extra.coords).addTo(map);
+        var marker = new mapboxgl.Marker({ element: wrapper, anchor: 'center' }).setLngLat(extra.coords).addTo(map);
         extraMarkers.push(marker);
       });
     });
