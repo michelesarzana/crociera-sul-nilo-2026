@@ -21,18 +21,30 @@
   --ease:      cubic-bezier(0.16,1,0.3,1);
 }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img { max-width: 100%; display: block; }
 
 .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  h1.hero-title { font-size: 40px; }
+  .hero-stats { gap: 8px; }
+  .stat-pill { padding: 8px 12px; }
+  .hero-content { padding: 0 16px 48px; }
+  #navbar { padding: 0 16px; }
+  .day-gallery { grid-template-columns: 1fr; }
+  .extras-grid { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+}
 
 /* ── NAVBAR ── */
 #navbar {
@@ -599,13 +611,16 @@ footer {
   .day-watermark { font-size: 120px; }
   h2.day-article-city { font-size: 32px; }
   .live-grid { grid-template-columns: 1fr 1fr; }
-  h1.hero-title { font-size: 60px; }
-  .hero-stats { gap: 12px; }
-  .stat-pill { padding: 10px 14px; }
+  h1.hero-title { font-size: clamp(42px, 12vw, 60px); line-height: 0.9; }
+  .hero-stats { gap: 10px; flex-direction: column; }
+  .stat-pill { padding: 10px 14px; width: 100%; box-sizing: border-box; }
   .stat-pill-value { font-size: 22px; }
   .nav-links { display: none; }
   .scroll-hint { display: none; }
-  .hero-content { padding-bottom: 60px; }
+  .hero-content { padding: 0 20px 60px; }
+  .container { padding: 0 20px; }
+  .day-article { padding: 48px 0; }
+  .day-article-inner { gap: 24px; }
 }
 
 /* ── Extra card & dip links ── */
