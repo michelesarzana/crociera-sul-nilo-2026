@@ -607,3 +607,11 @@ footer {
   .scroll-hint { display: none; }
   .hero-content { padding-bottom: 60px; }
 }
+
+/* ── Extra card & dip links ── */
+.extra-card-link, .dip-extra-link {
+  display: inline-block; margin-top: 6px;
+  font-size: 11px; color: var(--teal);
+  text-decoration: none; letter-spacing: 0.05em;
+}
+.extra-card-link:hover, .dip-extra-link:hover { text-decoration: underline; }
