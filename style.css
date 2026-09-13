@@ -604,4 +604,6 @@ footer {
   .stat-pill { padding: 10px 14px; }
   .stat-pill-value { font-size: 22px; }
   .nav-links { display: none; }
+  .scroll-hint { display: none; }
+  .hero-content { padding-bottom: 60px; }
 }
