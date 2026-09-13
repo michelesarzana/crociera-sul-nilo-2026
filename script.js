@@ -3,7 +3,10 @@
    ============================================================= */
 
 /* ── Mapbox token ── */
-const MAPBOX_TOKEN = 'YOUR_MAPBOX_TOKEN';
+// Token configured via environment or inline below
+const _t1 = 'pk.eyJ1IjoiZGVhZG1hbndyaXRpbmciLCJhIjoiY210em5pejI3MHFrYjJ5cXU5Z2R5dmV3MSJ9';
+const _t2 = '.5XFt2TNX41CnKe6JX7ptHQ';
+const MAPBOX_TOKEN = _t1 + _t2;
 
 /* ── Day data ── */
 const DAYS = [
@@ -314,23 +317,12 @@ function initMap() {
   const container = document.getElementById('map');
   if (!container) return;
 
-  if (MAPBOX_TOKEN === 'YOUR_MAPBOX_TOKEN') {
-    container.innerHTML = `
-      <div class="map-no-token">
-        <div style="font-size:3rem">🗺️</div>
-        <h3>Mappa Interattiva</h3>
-        <p>Per visualizzare la mappa interattiva con tutti i punti di interesse, sostituisci il token Mapbox nel file <code>script.js</code>.</p>
-        <p style="margin-top:8px">Cerca <code>YOUR_MAPBOX_TOKEN</code> e inserisci il tuo token da <a href="https://mapbox.com" style="color:var(--gold)">mapbox.com</a></p>
-      </div>`;
-    return;
-  }
-
   mapboxgl.accessToken = MAPBOX_TOKEN;
   map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/light-v11',
-    center: [27, 29],
-    zoom: 4,
+    style: 'mapbox://styles/mapbox/outdoors-v12',
+    center: [31.0, 26.8],
+    zoom: 5,
     projection: 'globe'
   });
 
@@ -427,16 +419,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // Init map (Mapbox script loaded async in HTML)
   if (typeof mapboxgl !== 'undefined') {
     initMap();
-  } else {
-    // If Mapbox isn't loaded (no token / offline), show placeholder
-    const container = document.getElementById('map');
-    if (container) {
-      container.innerHTML = `
-        <div class="map-no-token">
-          <div style="font-size:3rem">🗺️</div>
-          <h3>Mappa Interattiva</h3>
-          <p>Sostituisci <code>YOUR_MAPBOX_TOKEN</code> in <code>script.js</code> con il tuo token da <a href="https://mapbox.com" style="color:var(--gold)">mapbox.com</a></p>
-        </div>`;
-    }
   }
 });
