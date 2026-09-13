@@ -254,78 +254,7 @@ a:hover { color: #A07020; }
   background: linear-gradient(to bottom, rgba(200,151,58,0.6), transparent);
 }
 
-/* Countdown inside hero */
-.hero-countdown {
-  background: rgba(28,18,8,0.55);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(200,151,58,0.25);
-  border-radius: 4px;
-  padding: 20px 24px;
-  display: inline-block;
-  max-width: 520px;
-}
-
-/* ═══════════════════════════════════════
-   COUNTDOWN (standalone section, fallback)
-   ═══════════════════════════════════════ */
-#countdown {
-  background: var(--bg-dark);
-  padding: 64px 0;
-  border-top: 1px solid rgba(200,151,58,0.15);
-}
-.countdown-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-.countdown-eyebrow {
-  font-family: var(--font-eyebrow);
-  font-size: 12px;
-  letter-spacing: 0.2em;
-  color: var(--gold);
-  margin-bottom: 12px;
-}
-.countdown-title {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 36px;
-  color: var(--white);
-}
-.countdown-grid {
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.countdown-item {
-  flex: 1;
-  text-align: center;
-  padding: 24px 16px;
-  position: relative;
-}
-.countdown-item:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  right: 0; top: 24px; bottom: 24px;
-  width: 1px;
-  background: rgba(200,151,58,0.2);
-}
-.countdown-num {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(48px, 6vw, 72px);
-  color: var(--gold-lt);
-  line-height: 1;
-  display: block;
-}
-.countdown-label {
-  font-family: var(--font-eyebrow);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: rgba(255,253,247,0.45);
-  margin-top: 8px;
-  display: block;
-}
+/* countdown removed */
 
 /* ═══════════════════════════════════════
    DAY SELECTOR
@@ -975,6 +904,208 @@ a:hover { color: #A07020; }
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.45s; }
+
+/* ═══════════════════════════════════════
+   PARALLAX DIVIDERS
+   ═══════════════════════════════════════ */
+.parallax-divider {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+  margin: 0;
+}
+.parallax-divider .parallax-img {
+  position: absolute;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 140%;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  will-change: transform;
+}
+.parallax-divider .parallax-label {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.15em;
+  color: #FAF8F3;
+  background: rgba(28,18,8,0.5);
+  padding: 8px 20px;
+  border: 1px solid rgba(200,151,58,0.5);
+  border-radius: 2px;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .parallax-divider { height: 240px; }
+  .parallax-divider .parallax-img { background-attachment: scroll; }
+}
+
+/* ═══════════════════════════════════════
+   DAY HIGHLIGHTS STRIP
+   ═══════════════════════════════════════ */
+.day-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 32px;
+}
+.highlight-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 2px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  border: 1px solid;
+}
+.highlight-pill.official {
+  color: #C8973A;
+  border-color: rgba(200,151,58,0.5);
+  background: rgba(200,151,58,0.08);
+}
+.highlight-pill.extra {
+  color: #2A7B8C;
+  border-color: rgba(42,123,140,0.5);
+  background: rgba(42,123,140,0.08);
+}
+
+/* ═══════════════════════════════════════
+   EXTRA ACTIVITIES CARDS
+   ═══════════════════════════════════════ */
+.day-extras-section {
+  margin-top: 40px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(200,151,58,0.2);
+}
+.day-extras-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: #2A7B8C;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.extra-card {
+  background: rgba(42,123,140,0.05);
+  border: 1px solid rgba(42,123,140,0.2);
+  border-radius: 4px;
+  padding: 16px 18px;
+  transition: border-color 0.2s;
+}
+.extra-card:hover {
+  border-color: rgba(42,123,140,0.5);
+}
+.extra-card-type {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: #2A7B8C;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.extra-card-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 17px;
+  color: #1C1208;
+  margin-bottom: 8px;
+}
+.extra-card-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #6B5A3E;
+  line-height: 1.5;
+}
+.extra-card-tip {
+  margin-top: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-style: italic;
+  color: #2A7B8C;
+}
+
+/* ═══════════════════════════════════════
+   DAY PHOTO GALLERY
+   ═══════════════════════════════════════ */
+.day-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin: 28px 0;
+}
+.day-gallery img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  border-radius: 3px;
+  display: block;
+}
+.day-gallery figcaption {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-style: italic;
+  color: #6B5A3E;
+  margin-top: 4px;
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .day-gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ═══════════════════════════════════════
+   MAP FILTERS
+   ═══════════════════════════════════════ */
+.map-filters { display: flex; gap: 8px; margin-bottom: 12px; }
+.map-filter-btn {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  border: 1px solid;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.map-filter-btn[data-layer="official"] {
+  color: #C8973A;
+  border-color: rgba(200,151,58,0.5);
+  background: transparent;
+}
+.map-filter-btn[data-layer="official"].active {
+  background: #C8973A;
+  color: #FAF8F3;
+}
+.map-filter-btn[data-layer="extra"] {
+  color: #2A7B8C;
+  border-color: rgba(42,123,140,0.5);
+  background: transparent;
+}
+.map-filter-btn[data-layer="extra"].active {
+  background: #2A7B8C;
+  color: #FAF8F3;
+}
+
+/* ═══════════════════════════════════════
+   MAP POPUPS
+   ═══════════════════════════════════════ */
+.map-popup { font-family: 'DM Sans', sans-serif; max-width: 220px; padding: 4px; }
+.map-popup-icon { font-size: 22px; margin-bottom: 4px; }
+.map-popup-name { font-family: 'DM Serif Display', serif; font-size: 16px; color: #1C1208; margin-bottom: 4px; }
+.map-popup-desc { font-size: 13px; color: #6B5A3E; line-height: 1.4; margin-bottom: 8px; }
+.map-popup-link { font-size: 13px; color: #C8973A; text-decoration: none; font-weight: 500; }
+.map-popup-link:hover { text-decoration: underline; }
+.mapboxgl-popup-content { border-radius: 4px !important; padding: 14px !important; box-shadow: 0 4px 20px rgba(28,18,8,0.15) !important; }
 
 /* ═══════════════════════════════════════
    MAPBOX overrides
