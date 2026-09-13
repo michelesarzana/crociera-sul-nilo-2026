@@ -602,6 +602,10 @@ footer {
     grid-template-rows: auto auto;
   }
   .map-col { position: static; height: 320px; max-height: none; }
+  #map { min-height: 320px; }
+  .map-section-intro { padding: 0; margin-bottom: 20px; }
+  .detail-col { padding: 20px 16px; }
+  .day-pills-wrap { padding-bottom: 8px; }
 
   .day-article-inner,
   .day-article-inner.reverse { grid-template-columns: 1fr; }
@@ -621,6 +625,8 @@ footer {
   .container { padding: 0 20px; }
   .day-article { padding: 48px 0; }
   .day-article-inner { gap: 24px; }
+  #navbar { padding: 0 20px; }
+  #mappa { padding: 48px 0 0; }
 }
 
 /* ── Extra card & dip links ── */
