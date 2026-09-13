@@ -609,6 +609,8 @@ footer {
 
   .day-article-inner,
   .day-article-inner.reverse { grid-template-columns: 1fr; }
+  .day-article-inner.reverse .day-photo-frame { order: 2; }
+  .day-article-inner.reverse .day-article-text { order: 1; }
 
   .day-photo-frame img { height: 280px; }
   .day-gallery { grid-template-columns: 1fr 1fr; }
