@@ -79,7 +79,8 @@ img { max-width: 100%; display: block; }
 /* ── HERO ── */
 #hero {
   position: relative; height: 100vh; min-height: 600px;
-  overflow: hidden; display: flex; align-items: flex-end;
+  overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch;
 }
 
 .hero-bg {
@@ -101,6 +102,7 @@ img { max-width: 100%; display: block; }
 .hero-content {
   position: relative; z-index: 2;
   width: 100%; padding: 0 0 80px;
+  margin-bottom: 0;
 }
 
 .hero-eyebrow {
@@ -143,12 +145,14 @@ h1.hero-title {
 }
 
 .scroll-hint {
-  position: absolute; bottom: 24px; left: 50%;
+  position: absolute; bottom: 32px; left: 50%;
   transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  color: rgba(255,253,247,0.5);
-  font-size: 11px; letter-spacing: 0.1em; z-index: 2;
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  color: rgba(255,253,247,0.6);
+  font-size: 11px; letter-spacing: 0.12em;
+  z-index: 10;
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .scroll-hint-line {
