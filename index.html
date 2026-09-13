@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crociera sul Nilo — Ottobre 2026 · Michele e Carlotta</title>
+  <meta name="description" content="Viaggio Egitto Voyager Nefertari 12-19 ottobre 2026 — Michele e Carlotta Meneghini-Sarzana">
+  <link rel="stylesheet" href="style.css">
+  <!-- Mapbox GL JS — will load only if token is set -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js"></script>
+</head>
+<body>
+
+<!-- ══════════════════ NAVBAR ══════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-logo">
+      <svg class="nav-logo-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="18,4 32,28 4,28" fill="none" stroke="#C9A84C" stroke-width="2"/>
+        <line x1="18" y1="4" x2="18" y2="28" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+        <line x1="4" y1="28" x2="32" y2="28" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+        <circle cx="18" cy="21" r="2" fill="#C9A84C"/>
+      </svg>
+      <span class="nav-logo-text">Crociera sul Nilo</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#overview">Il Viaggio</a></li>
+      <li><a href="#mappa">Mappa</a></li>
+      <li><a href="#giorni">Itinerario</a></li>
+      <li><a href="#live">📸 Live</a></li>
+      <li><a href="#info-pratiche">Info</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Michele &amp; Carlotta Meneghini-Sarzana</div>
+    <h1 class="hero-title">Crociera sul<br><span class="gold">Nilo</span></h1>
+    <p class="hero-subtitle">Ottobre 2026 · Voyager Nefertari</p>
+    <div class="hero-countdown">
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-days">--</div>
+        <div class="countdown-label">Giorni</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-hours">--</div>
+        <div class="countdown-label">Ore</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-mins">--</div>
+        <div class="countdown-label">Minuti</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-secs">--</div>
+        <div class="countdown-label">Secondi</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+    Scorri
+  </div>
+</section>
+
+
+<!-- ══════════════════ OVERVIEW ══════════════════ -->
+<section id="overview">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Il Viaggio</div>
+      <h2 class="section-title">Egitto Voyager Nefertari</h2>
+      <p class="section-subtitle" style="margin:0 auto">Un'avventura tra le meraviglie più antiche del mondo: dal Cairo cosmopolita alle rive del Nilo fino ai templi di Abu Simbel.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card reveal reveal-delay-1">
+        <div class="stat-icon">🌅</div>
+        <div class="stat-num" data-target="8" data-suffix="">8</div>
+        <div class="stat-desc">Giorni di viaggio</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <div class="stat-icon">🛣️</div>
+        <div class="stat-num" data-target="560" data-suffix="">560</div>
+        <div class="stat-desc">Km sul Nilo</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <div class="stat-icon">🏛️</div>
+        <div class="stat-num" data-target="12" data-suffix="+">12+</div>
+        <div class="stat-desc">Siti storici</div>
+      </div>
+      <div class="stat-card reveal reveal-delay-4">
+        <div class="stat-icon">🌙</div>
+        <div class="stat-num" data-target="7" data-suffix="">7</div>
+        <div class="stat-desc">Notti</div>
+      </div>
+    </div>
+    <div class="egypt-pattern" style="margin-top:60px">
+      <svg width="320" height="24" viewBox="0 0 320 24" fill="none">
+        <line x1="0" y1="12" x2="120" y2="12" stroke="#C9A84C" stroke-width="1"/>
+        <polygon points="140,2 160,22 180,2" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+        <line x1="200" y1="12" x2="320" y2="12" stroke="#C9A84C" stroke-width="1"/>
+        <rect x="148" y="10" width="4" height="4" fill="#C9A84C" opacity="0.6" transform="rotate(45 150 12)"/>
+        <rect x="168" y="10" width="4" height="4" fill="#C9A84C" opacity="0.6" transform="rotate(45 170 12)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════ MAPPA ══════════════════ -->
+<section id="mappa">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label">Percorso</div>
+      <h2 class="section-title">Mappa Interattiva</h2>
+      <p class="section-subtitle">Seleziona un giorno per vedere le tappe, i punti di interesse e i dettagli della giornata.</p>
+    </div>
+
+    <!-- Day selector -->
+    <div class="day-selector reveal">
+      <button class="day-btn active" data-day="1">
+        <span class="day-num">G1</span>
+        <span class="day-date">12 ott</span>
+        <span class="day-city">Cairo</span>
+      </button>
+      <button class="day-btn" data-day="2">
+        <span class="day-num">G2</span>
+        <span class="day-date">13 ott</span>
+        <span class="day-city">Giza</span>
+      </button>
+      <button class="day-btn" data-day="3">
+        <span class="day-num">G3</span>
+        <span class="day-date">14 ott</span>
+        <span class="day-city">Cairo</span>
+      </button>
+      <button class="day-btn" data-day="4">
+        <span class="day-num">G4</span>
+        <span class="day-date">15 ott</span>
+        <span class="day-city">Abu Simbel</span>
+      </button>
+      <button class="day-btn" data-day="5">
+        <span class="day-num">G5</span>
+        <span class="day-date">16 ott</span>
+        <span class="day-city">Aswan</span>
+      </button>
+      <button class="day-btn" data-day="6">
+        <span class="day-num">G6</span>
+        <span class="day-date">17 ott</span>
+        <span class="day-city">Nilo</span>
+      </button>
+      <button class="day-btn" data-day="7">
+        <span class="day-num">G7</span>
+        <span class="day-date">18 ott</span>
+        <span class="day-city">Luxor W</span>
+      </button>
+      <button class="day-btn" data-day="8">
+        <span class="day-num">G8</span>
+        <span class="day-date">19 ott</span>
+        <span class="day-city">Luxor</span>
+      </button>
+    </div>
+
+    <!-- Map -->
+    <div class="map-wrapper reveal">
+      <div id="map"></div>
+    </div>
+
+    <!-- Day info panel -->
+    <div class="day-info-panel reveal" id="day-info-panel">
+      <!-- Populated by script.js -->
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════ GIORNI ══════════════════ -->
+<section id="giorni">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Itinerario</div>
+      <h2 class="section-title">Giorno per Giorno</h2>
+      <p class="section-subtitle" style="margin:0 auto 64px">Otto giorni tra le meraviglie dell'antico e del moderno Egitto.</p>
+    </div>
+
+    <!-- ── Giorno 1 ── -->
+    <div class="day-section">
+      <div class="day-section-inner">
+        <div class="day-image-col reveal">
+          <div class="day-num-watermark">1</div>
+          <img class="day-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Kheops-Pyramid.jpg/1280px-Kheops-Pyramid.jpg" alt="Cairo — Piramidi" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="day-photo-placeholder" style="display:none"><div class="ph-emoji">🌆</div><div class="ph-text">Il Cairo</div></div>
+        </div>
+        <div class="day-content-col reveal reveal-delay-1">
+          <div class="day-header">
+            <div class="day-label">Giorno 1 · 12 Ottobre 2026</div>
+            <h2>Arrivo al Cairo</h2>
+            <div class="day-date-tag">Volo Malpensa → Cairo · Waldorf Astoria</div>
+          </div>
+          <p class="day-narrative">La partenza è alle 7:30 da Malpensa con il volo Neos N°1424. Dopo circa 4 ore di volo si atterra al Cairo intorno a mezzogiorno. Transfer verso l'elegante Waldorf Astoria Cairo Heliopolis, nel quartiere presidenziale a soli 5 km dall'aeroporto. Il pomeriggio è libero per le prime passeggiate cairote, mentre la sera si cena nell'hotel tra i ristoranti pluritematici del Waldorf.</p>
+          <div class="day-cards">
+            <div class="info-card"><div class="ic-label">🏨 Hotel</div><div class="ic-value">Waldorf Astoria Cairo</div><div class="ic-sub">Heliopolis — 5★</div></div>
+            <div class="info-card"><div class="ic-label">🍽️ Trattamento</div><div class="ic-value">Cena in hotel</div><div class="ic-sub">Prima sera</div></div>
+          </div>
+          <div class="free-time-day">
+            <h4>⭐ Tempo Libero</h4>
+            <ul>
+              <li>Ra Sun Bar — cocktail bar jazz del Waldorf</li>
+              <li>Crociera cena serale sul Nilo (sera alternativa)</li>
+              <li>Citystars Mall — il più grande del Cairo, a 5 min</li>
+            </ul>
+          </div>
+          <div class="poi-tags">
+            <span class="poi-tag">✈️ Volo Neos N°1424</span>
+            <span class="poi-tag">🏨 Waldorf Astoria Heliopolis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="day-divider">
+
+    <!-- ── Giorno 2 ── -->
+    <div class="day-section">
+      <div class="day-section-inner">
+        <div class="day-image-col reveal">
+          <div class="day-num-watermark">2</div>
+          <img class="day-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/1280px-All_Gizah_Pyramids.jpg" alt="Piramidi di Giza" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="day-photo-placeholder" style="display:none"><div class="ph-emoji">🏛️</div><div class="ph-text">Piramidi di Giza</div></div>
+        </div>
+        <div class="day-content-col reveal reveal-delay-1">
+          <div class="day-header">
+            <div class="day-label">Giorno 2 · 13 Ottobre 2026</div>
+            <h2>Memphis, Sakkara e le Piramidi di Giza</h2>
+            <div class="day-date-tag">L'unica Meraviglia del Mondo Antico ancora in piedi</div>
+          </div>
+          <p class="day-narrative">Visita a Memphis, l'antica capitale del Basso Egitto, e a Sakkara con la Piramide a Gradoni di Zoser — la prima piramide della storia, progettata dall'architetto Imhotep intorno al 2650 a.C. Dopo il pranzo in ristorante locale, l'appuntamento con le tre Piramidi di Giza e la Grande Sfinge: l'unica delle Sette Meraviglie ancora esistente. La visita si chiude al Museo del Papiro con dimostrazione della lavorazione tradizionale.</p>
+          <div class="day-cards">
+            <div class="info-card"><div class="ic-label">🏨 Hotel</div><div class="ic-value">Waldorf Astoria Cairo</div><div class="ic-sub">Heliopolis — 5★</div></div>
+            <div class="info-card"><div class="ic-label">🍽️ Trattamento</div><div class="ic-value">Pensione completa</div><div class="ic-sub">Colazione + pranzo + cena</div></div>
+          </div>
+          <div class="free-time-day">
+            <h4>⭐ Tempo Libero</h4>
+            <ul>
+              <li>Interno della Grande Piramide — visita a pagamento extra, spazio stretto ma unico</li>
+              <li>Viewpoint panoramico a sud — tutte e 3 le piramidi in fila</li>
+              <li>Giro in cammello attorno al plateau al tramonto</li>
+            </ul>
+          </div>
+          <div class="poi-tags">
+            <span class="poi-tag">🏛️ Memphis / Mit Rahina</span>
+            <span class="poi-tag">🏛️ Sakkara</span>
+            <span class="poi-tag">🏛️ Piramidi di Giza</span>
+            <span class="poi-tag">🗿 Grande Sfinge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="day-divider">
+
+    <!-- ── Giorno 3 ── -->
+    <div class="day-section">
+      <div class="day-section-inner">
+        <div class="day-image-col reveal">
+          <div class="day-num-watermark">3</div>
+          <img class="day-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Citadel_of_Saladin%2C_Cairo.jpg/1280px-Citadel_of_Saladin%2C_Cairo.jpg" alt="Cittadella di Saladino" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="day-photo-placeholder" style="display:none"><div class="ph-emoji">🕌</div><div class="ph-text">Cairo Islamica</div></div>
+        </div>
+        <div class="day-content-col reveal reveal-delay-1">
+          <div class="day-header">
+            <div class="day-label">Giorno 3 · 14 Ottobre 2026</div>
+            <h2>Grand Egyptian Museum e Cairo Islamica</h2>
+            <div class="day-date-tag">Il più grande museo del mondo · Bazar storico</div>
+          </div>
+          <p class="day-narrative">Mattinata al Grand Egyptian Museum (GEM), inaugurato nella versione completa a novembre 2025: oltre 100.000 reperti su 5,2 milioni di piedi quadrati. Pezzo forte: la collezione completa di Tutankhamon con 5.000 oggetti. Nel pomeriggio visita alla Cittadella di Saladino con la magnifica Moschea d'Alabastro di Mohamed Alì, poi immersione nel Khan el Khalili, il bazar storico del 1382 nel cuore della Cairo islamica.</p>
+          <div class="day-cards">
+            <div class="info-card"><div class="ic-label">🏨 Hotel</div><div class="ic-value">Waldorf Astoria Cairo</div><div class="ic-sub">Heliopolis — 5★</div></div>
+            <div class="info-card"><div class="ic-label">🍽️ Trattamento</div><div class="ic-value">Pensione completa</div><div class="ic-sub">Ultima notte al Cairo</div></div>
+          </div>
+          <div class="free-time-day">
+            <h4>⭐ Tempo Libero</h4>
+            <ul>
+              <li>Khan el Khalili di sera (17-21) — lanterne in rame, meno turisti, massima atmosfera</li>
+              <li>Naguib Mahfouz Cafe — ristorante storico nel cuore del bazaar</li>
+              <li>Al-Moez Street — la via più bella della Cairo islamica (patrimonio UNESCO)</li>
+            </ul>
+          </div>
+          <div class="poi-tags">
+            <span class="poi-tag">🏛️ Grand Egyptian Museum</span>
+            <span class="poi-tag">🏰 Cittadella di Saladino</span>
+            <span class="poi-tag">🕌 Moschea Mohamed Alì</span>
+            <span class="poi-tag">🛒 Khan el Khalili</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="day-divider">
+
+
+    <!-- ── Giorno 4 ── -->
+    <div class="day-section">
+      <div class="day-section-inner">
+        <div class="day-image-col reveal">
+          <div class="day-num-watermark">4</div>
+          <img class="day-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0k/Abu_Simbel%2C_Ramesses_Temple%2C_front_view%2C_Egypt%2C_Oct_2004.jpg/1280px-Abu_Simbel%2C_Ramesses_Temple%2C_front_view%2C_Egypt%2C_Oct_2004.jpg" alt="Abu Simbel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="day-photo-placeholder" style="display:none"><div class="ph-emoji">🏛️</div><div class="ph-text">Abu Simbel</div></div>
+        </div>
+        <div class="day-content-col reveal reveal-delay-1">
+          <div class="day-header">
+            <div class="day-label">Giorno 4 · 15 Ottobre 2026</div>
+            <h2>Abu Simbel</h2>
+            <div class="day-date-tag">I templi di Ramesse II sul Lago Nasser</div>
+          </div>
+          <p class="day-narrative">Volo interno Cairo → Aswan, poi 280 km in pullman attraverso il deserto nubiano fino ad Abu Simbel. Check-in all'Hotel Seti sulla riva del Lago Nasser. Visita al Grande Tempio di Ramesse II — quattro colossi da 20 metri scolpiti nella roccia — e al Piccolo Tempio di Nefertari. La sera, lo spettacolo Suoni e Luci trasforma i templi in un teatro a cielo aperto. Curiosità: il 22 ottobre (una settimana dopo) il sole illuminerà perfettamente le statue interne.</p>
+          <div class="day-cards">
+            <div class="info-card"><div class="ic-label">🏨 Hotel</div><div class="ic-value">Hotel Seti Abu Simbel</div><div class="ic-sub">Riva Lago Nasser</div></div>
+            <div class="info-card"><div class="ic-label">🍽️ Trattamento</div><div class="ic-value">Pensione completa</div><div class="ic-sub">Incluso cena e spettacolo</div></div>
+          </div>
+          <div class="free-time-day">
+            <h4>⭐ Tempo Libero</h4>
+            <ul>
+              <li>Villaggio nubiano di Abu Simbel — case colorate e musica tradizionale</li>
+              <li>Tramonto al Lago Nasser — il 2° lago artificiale più grande del mondo</li>
+              <li>Viewpoint del deserto — panorama sui templi con il lago sullo sfondo</li>
+            </ul>
+          </div>
+          <div class="poi-tags">
+            <span class="poi-tag">✈️ Volo Cairo→Aswan</span>
+            <span class="poi-tag">🏛️ Tempio di Ramesse II</span>
+            <span class="poi-tag">🏛️ Tempio di Nefertari</span>
+            <span class="poi-tag">🎭 Spettacolo Suoni e Luci</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="day-divider">
+
+    <!-- ── Giorno 5 ── -->
+    <div class="day-section">
+      <div class="day-section-inner">
+        <div class="day-image-col reveal">
+          <div class="day-num-watermark">5</div>
+          <img class="day-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Philae_temple_Isis.jpg/1280px-Philae_temple_Isis.jpg" alt="Tempio di Philae" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="day-photo-placeholder" style="display:none"><div class="ph-emoji">🚢</div><div class="ph-text">Aswan · Philae · Motonave</div></div>
+        </div>
+        <div class="day-content-col reveal reveal-delay-1">
+          <div class="day-header">
+            <div class="day-label">Giorno 5 · 16 Ottobre 2026</div>
+            <h2>Aswan e Imbarco sul Nilo</h2>
+            <div class="day-date-tag">Alta Diga · Tempio di Philae · Motonave Gemma</div>
+          </div>
+          <p class="day-narrative">Rientro ad Aswan e visita all'Alta Diga — una delle grandi opere ingegneristiche del XX secolo. Poi imbarco sulla motonave Gemma/TIA, casa per le prossime tre notti: pranzo a bordo sul Nilo. Nel pomeriggio, visita al Tempio di File (Philae), trasferito dall'UNESCO pietra per pietra dalla sua isola originale negli anni '70: contiene le ultime iscrizioni geroglifiche mai incise. La giornata si chiude con una feluca al tramonto tra i massi granitici del Primo Cateratta.</p>
+          <div class="day-cards">
+            <div class="info-card"><div class="ic-label">🚢 Alloggio</div><div class="ic-value">Motonave Gemma/TIA</div><div class="ic-sub">Sul Nilo — Aswan</div></div>
+            <div class="info-card"><div class="ic-label">🍽️ Trattamento</div><div class="ic-value">Soft All Inclusive</div><div class="ic-sub">A bordo della motonave</div></div>
+          </div>
+          <div class="free-time-day">
+            <h4>⭐ Tempo Libero</h4>
+            <ul>
+              <li>Feluca — Isola Elefantina: giro nei massi granitici (600-800 EGP / 3h)</li>
+              <li>Giardino Botanico Kitchener's Island — oasi tropicale raggiungibile solo in barca</li>
+              <li>Souq di Aswan — karkadé, spezie, berretti nubiani</li>
+            </ul>
+          </div>
+          <div class="poi-tags">
+            <span class="poi-tag">🏗️ Alta Diga di Aswan</span>
+            <span class="poi-tag">🏛️ Tempio di Philae</span>
+            <span class="poi-tag">🚢 Imbarco Motonave</span>
+            <span class="poi-tag">⛵ Feluca al tramonto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="day-divider">
+
+
+    <!-- ── Giorno 6 ── -->
+    <div class="day-section">
+      <div class="day-section-inner">
+        <div class="day-image-col reveal">
+          <div class="day-num-watermark">6</div>
+          <img class="day-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Kom_Ombo_temple.jpg/1280px-Kom_Ombo_temple.jpg" alt="Tempio di Kom Ombo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="day-photo-placeholder" style="display:none"><div class="ph-emoji">🏛️</div><div class="ph-text">Navigazione sul Nilo</div></div>
+        </div>
+        <div class="day-content-col reveal reveal-delay-1">
+          <div class="day-header">
+            <div class="day-label">Giorno 6 · 17 Ottobre 2026</div>
+            <h2>Navigazione: Kom Ombo e Edfu</h2>
+            <div class="day-date-tag">Unico tempio doppio d'Egitto · Tempio più conservato</div>
+          </div>
+          <p class="day-narrative">Navigazione verso nord tra le rive del Nilo con i loro paesaggi di deserto e vegetazione lussureggiante. Prima tappa a Kom Ombo: unico tempio doppio d'Egitto, dedicato al coccodrillo Sobek e al falco Haroeris, con annesso il Museo dei Coccodrilli (300 mummie). Poi Edfu, il tempio di Horus meglio conservato d'Egitto: sepolto dalla sabbia per secoli e riscoperto nell'800. La sera si arriva a Luxor.</p>
+          <div class="day-cards">
+            <div class="info-card"><div class="ic-label">🚢 Alloggio</div><div class="ic-value">Motonave Gemma/TIA</div><div class="ic-sub">Navigazione sul Nilo</div></div>
+            <div class="info-card"><div class="ic-label">🍽️ Trattamento</div><div class="ic-value">Soft All Inclusive</div><div class="ic-sub">Tutti i pasti a bordo</div></div>
+          </div>
+          <div class="free-time-day">
+            <h4>⭐ Tempo Libero</h4>
+            <ul>
+              <li>Deck panoramico della motonave — aperitivo al tramonto durante la navigazione</li>
+              <li>Museo dei Coccodrilli (Kom Ombo) — 300 mummie, incluso nel biglietto del tempio</li>
+            </ul>
+          </div>
+          <div class="poi-tags">
+            <span class="poi-tag">🏛️ Tempio di Kom Ombo</span>
+            <span class="poi-tag">🐊 Museo dei Coccodrilli</span>
+            <span class="poi-tag">🏛️ Tempio di Edfu</span>
+            <span class="poi-tag">⚓ Arrivo Luxor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="day-divider">
+
+    <!-- ── Giorno 7 ── -->
+    <div class="day-section">
+      <div class="day-section-inner">
+        <div class="day-image-col reveal">
+          <div class="day-num-watermark">7</div>
+          <img class="day-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Mortuary_Temple_of_Hatshepsut_edit2.jpg/1280px-Mortuary_Temple_of_Hatshepsut_edit2.jpg" alt="Tempio di Hatshepsut" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="day-photo-placeholder" style="display:none"><div class="ph-emoji">🏛️</div><div class="ph-text">Luxor Ovest</div></div>
+        </div>
+        <div class="day-content-col reveal reveal-delay-1">
+          <div class="day-header">
+            <div class="day-label">Giorno 7 · 18 Ottobre 2026</div>
+            <h2>La Valle dei Re</h2>
+            <div class="day-date-tag">63 tombe reali · Hatshepsut · Colossi di Memnone</div>
+          </div>
+          <p class="day-narrative">La sponda ovest di Luxor è la più alta concentrazione di storia del mondo. La Valle dei Re con le 63 tombe dei faraoni del Nuovo Regno, scavate nella roccia tra il 1500 e il 1000 a.C. Il magnifico tempio a terrazze di Hatshepsut — la faraona che governò per 20 anni come re — a Deir el-Bahari. Infine i Colossi di Memnone: due statue da 18 metri che proteggevano il tempio di Amenhotep III. Nel pomeriggio, tempo libero o escursione facoltativa.</p>
+          <div class="day-cards">
+            <div class="info-card"><div class="ic-label">🚢 Alloggio</div><div class="ic-value">Motonave Gemma/TIA</div><div class="ic-sub">Ormeggiata a Luxor</div></div>
+            <div class="info-card"><div class="ic-label">🍽️ Trattamento</div><div class="ic-value">Soft All Inclusive</div><div class="ic-sub">Pranzo + cena a bordo</div></div>
+          </div>
+          <div class="free-time-day">
+            <h4>⭐ Tempo Libero</h4>
+            <ul>
+              <li>Pallone aerostatico all'alba sulla Valle dei Re — 70-120 USD, prenotare in anticipo</li>
+              <li>Tomba di Nefertari (Valle delle Regine) — la tomba più bella d'Egitto, ticket limitato</li>
+              <li>Bazaar di Luxor (Sharia al-Souk) — papiri, alabastro, stoffe beduine</li>
+            </ul>
+          </div>
+          <div class="poi-tags">
+            <span class="poi-tag">🏛️ Valle dei Re</span>
+            <span class="poi-tag">🏛️ Deir el-Bahari</span>
+            <span class="poi-tag">🗿 Colossi di Memnone</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="day-divider">
+
+    <!-- ── Giorno 8 ── -->
+    <div class="day-section">
+      <div class="day-section-inner">
+        <div class="day-image-col reveal">
+          <div class="day-num-watermark">8</div>
+          <img class="day-photo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Karnak_temple_at_sunset.jpg/1280px-Karnak_temple_at_sunset.jpg" alt="Tempio di Karnak" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="day-photo-placeholder" style="display:none"><div class="ph-emoji">🏛️</div><div class="ph-text">Karnak · Luxor</div></div>
+        </div>
+        <div class="day-content-col reveal reveal-delay-1">
+          <div class="day-header">
+            <div class="day-label">Giorno 8 · 19 Ottobre 2026</div>
+            <h2>Karnak, Luxor e Rientro</h2>
+            <div class="day-date-tag">Il più grande complesso templare del mondo · Volo verso casa</div>
+          </div>
+          <p class="day-narrative">Il gran finale: Karnak, il più grande complesso templare del mondo, costruito e ampliato da 30 faraoni nell'arco di 2.000 anni. L'Ipostila con 134 colonne colossali è uno dei luoghi più fotogenici dell'Egitto. Poi il Tempio di Luxor, collegato a Karnak dalla leggendaria Avenue delle Sfingi di 3 km. Ultimo pranzo a bordo della motonave, poi transfer all'aeroporto di Luxor per il volo Neos N°1425 delle 15:10 che riporta a Malpensa alle 18:55.</p>
+          <div class="day-cards">
+            <div class="info-card"><div class="ic-label">✈️ Volo</div><div class="ic-value">Neos N°1425</div><div class="ic-sub">Luxor 15:10 → MXP 18:55</div></div>
+            <div class="info-card"><div class="ic-label">🍽️ Trattamento</div><div class="ic-value">Pranzo a bordo</div><div class="ic-sub">Ultimo pasto in Egitto</div></div>
+          </div>
+          <div class="free-time-day">
+            <h4>⭐ Tempo Libero</h4>
+            <ul>
+              <li>Luxor Temple by Night (se c'è tempo mattutino) — illuminazione serale 18-22</li>
+              <li>Corniche di Luxor — colazione con vista Nilo prima del volo</li>
+              <li>Avenue degli Sfingi (3 km) — passeggiata UNESCO che collega Karnak a Luxor</li>
+            </ul>
+          </div>
+          <div class="poi-tags">
+            <span class="poi-tag">🏛️ Tempio di Karnak</span>
+            <span class="poi-tag">🏛️ Tempio di Luxor</span>
+            <span class="poi-tag">✈️ Volo Luxor→Malpensa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</section>
+
+
+<!-- ══════════════════ LIVE ══════════════════ -->
+<section id="live">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">📸 Dal Vivo</div>
+      <h2 class="section-title">Le nostre foto in arrivo</h2>
+      <p class="section-subtitle">Durante il viaggio aggiorneremo questa sezione con le nostre foto. Torna a trovarci dal 12 ottobre!</p>
+    </div>
+    <div class="live-grid">
+      <div class="live-card reveal reveal-delay-1">
+        <div class="live-card-shimmer"></div>
+        <div class="live-card-content">
+          <div class="live-card-icon">📷</div>
+          <div class="live-card-text">Foto in arrivo</div>
+          <div class="live-card-day">Giorno 1 · Il Cairo</div>
+        </div>
+      </div>
+      <div class="live-card reveal reveal-delay-2">
+        <div class="live-card-shimmer"></div>
+        <div class="live-card-content">
+          <div class="live-card-icon">📷</div>
+          <div class="live-card-text">Foto in arrivo</div>
+          <div class="live-card-day">Giorno 2 · Piramidi</div>
+        </div>
+      </div>
+      <div class="live-card reveal reveal-delay-3">
+        <div class="live-card-shimmer"></div>
+        <div class="live-card-content">
+          <div class="live-card-icon">📷</div>
+          <div class="live-card-text">Foto in arrivo</div>
+          <div class="live-card-day">Giorno 3 · GEM</div>
+        </div>
+      </div>
+      <div class="live-card reveal reveal-delay-1">
+        <div class="live-card-shimmer"></div>
+        <div class="live-card-content">
+          <div class="live-card-icon">📷</div>
+          <div class="live-card-text">Foto in arrivo</div>
+          <div class="live-card-day">Giorno 4 · Abu Simbel</div>
+        </div>
+      </div>
+      <div class="live-card reveal reveal-delay-2">
+        <div class="live-card-shimmer"></div>
+        <div class="live-card-content">
+          <div class="live-card-icon">📷</div>
+          <div class="live-card-text">Foto in arrivo</div>
+          <div class="live-card-day">Giorno 5 · Aswan &amp; Nilo</div>
+        </div>
+      </div>
+      <div class="live-card reveal reveal-delay-3">
+        <div class="live-card-shimmer"></div>
+        <div class="live-card-content">
+          <div class="live-card-icon">📷</div>
+          <div class="live-card-text">Foto in arrivo</div>
+          <div class="live-card-day">Giorni 6-8 · Luxor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════ INFO PRATICHE ══════════════════ -->
+<section id="info-pratiche">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <div class="section-label">Pratico</div>
+      <h2 class="section-title">Info Pratiche</h2>
+      <p class="section-subtitle">Tutto quello che serve sapere prima di partire.</p>
+    </div>
+
+    <div class="egypt-divider reveal">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,2 22,20 2,20" fill="none" stroke="#C9A84C" stroke-width="1.5"/><line x1="12" y1="2" x2="12" y2="20" stroke="#C9A84C" stroke-width="1" opacity="0.4"/></svg>
+    </div>
+
+    <div class="info-grid">
+
+      <!-- Voli -->
+      <div class="info-block reveal">
+        <div class="info-block-header">
+          <div class="info-block-icon">✈️</div>
+          <div class="info-block-title">Voli</div>
+        </div>
+        <div class="flight-row">
+          <div class="flight-num">N°1424</div>
+          <div class="flight-route">Malpensa (MXP) → Cairo (CAI)</div>
+          <div class="flight-time">07:30 → 12:20</div>
+        </div>
+        <div class="flight-row" style="margin-top:8px">
+          <div class="flight-num">N°1425</div>
+          <div class="flight-route">Luxor (LXR) → Malpensa (MXP)</div>
+          <div class="flight-time">15:10 → 18:55</div>
+        </div>
+        <ul style="margin-top:16px">
+          <li>Compagnia: <strong>Neos Air</strong> (charter Turisanda)</li>
+          <li>12 ottobre: partenza MXP terminale 1</li>
+          <li>19 ottobre: rientro MXP pomeriggio</li>
+        </ul>
+      </div>
+
+      <!-- Documenti -->
+      <div class="info-block reveal reveal-delay-1">
+        <div class="info-block-header">
+          <div class="info-block-icon">📋</div>
+          <div class="info-block-title">Documenti</div>
+        </div>
+        <ul>
+          <li><strong>Passaporto o Carta d'Identità</strong> validi per almeno 6 mesi dopo la data di rientro</li>
+          <li><strong>Visto incluso</strong> nel prezzo del tour (Turisanda gestisce l'ottieni all'arrivo)</li>
+          <li>Portare <strong>2 fototessera</strong> se si entra con Carta d'Identità</li>
+          <li>Assicurazione viaggio consigliata per copertura sanitaria</li>
+          <li>Documenti del tour: tenere sempre con sé la voucher Turisanda</li>
+        </ul>
+      </div>
+
+      <!-- Sistemazioni -->
+      <div class="info-block reveal">
+        <div class="info-block-header">
+          <div class="info-block-icon">🏨</div>
+          <div class="info-block-title">Sistemazioni</div>
+        </div>
+        <ul>
+          <li><strong>Cairo (2 notti):</strong> Waldorf Astoria Cairo Heliopolis — 5★, quartiere presidenziale, 5 km dall'aeroporto</li>
+          <li><strong>Abu Simbel (1 notte):</strong> Seti Abu Simbel Lake Resort — riva del Lago Nasser</li>
+          <li><strong>Crociera (3 notti):</strong> Motonave Gemma/TIA — soft all inclusive a bordo (Aswan → Luxor)</li>
+        </ul>
+      </div>
+
+      <!-- Cosa portare -->
+      <div class="info-block reveal reveal-delay-1">
+        <div class="info-block-header">
+          <div class="info-block-icon">🎒</div>
+          <div class="info-block-title">Cosa Portare</div>
+        </div>
+        <ul>
+          <li><strong>Abbigliamento leggero</strong> — ottobre: 28-35°C di giorno, 18-22°C la sera</li>
+          <li><strong>Scarpe comode</strong> per camminare sui siti archeologici (sabbia e terreno irregolare)</li>
+          <li><strong>Crema solare alta protezione</strong> + cappello a tesa larga</li>
+          <li><strong>Foulard/pashmina</strong> per le moschee e i siti religiosi</li>
+          <li>Acqua: comprare in loco (bottiglie locali costano pochissimo)</li>
+          <li>Cash in EGP (Sterlina Egiziana) per mance, souvenir e mercati</li>
+          <li>Adattatore prese elettriche tipo C/F (europee, già compatibili)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <!-- Egyptian glyph SVG -->
+    <div class="footer-glyph">
+      <svg width="80" height="60" viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Ankh symbol -->
+        <circle cx="40" cy="18" r="10" fill="none" stroke="#C9A84C" stroke-width="2"/>
+        <line x1="40" y1="28" x2="40" y2="54" stroke="#C9A84C" stroke-width="2"/>
+        <line x1="28" y1="38" x2="52" y2="38" stroke="#C9A84C" stroke-width="2"/>
+        <!-- Small decorative elements -->
+        <line x1="0" y1="58" x2="22" y2="58" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+        <line x1="58" y1="58" x2="80" y2="58" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+        <polygon points="33,4 40,0 47,4 40,8" fill="none" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+      </svg>
+    </div>
+    <div class="footer-title">Voyager Nefertari</div>
+    <div class="footer-subtitle">Michele &amp; Carlotta Meneghini-Sarzana · Ottobre 2026</div>
+    <div class="footer-route">✈️ Malpensa → Cairo → Luxor → Malpensa</div>
+    <div class="footer-line"></div>
+    <div class="footer-credit">Viaggio organizzato da Turisanda · Powered by curiosità e amore per l'antico</div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
