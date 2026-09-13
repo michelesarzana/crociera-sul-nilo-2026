@@ -340,7 +340,7 @@ function initMap() {
     DAYS.forEach(function(day) {
       day.poi.forEach(function(poi) {
         var el = document.createElement('div');
-        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:transform 0.2s';
+        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:transform 0.2s;position:relative;z-index:2';
         el.textContent = poiEmoji(poi.type);
         el.title = poi.name;
         el.addEventListener('mouseenter', function() { el.style.transform = 'scale(1.2)'; });
@@ -361,7 +361,7 @@ function initMap() {
       var extras = EXTRAS_BY_DAY[dayId];
       extras.forEach(function(extra) {
         var wrapper = document.createElement('div');
-        wrapper.style.cssText = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s';
+        wrapper.style.cssText = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s;position:relative;z-index:1';
         var diamond = document.createElement('div');
         diamond.style.cssText = 'width:20px;height:20px;background:#2A7B8C;transform:rotate(45deg);border:2px solid #FAF8F3;box-shadow:0 2px 8px rgba(42,123,140,0.4)';
         wrapper.appendChild(diamond);
