@@ -4,7 +4,7 @@
 
 /* ── Mapbox token ── */
 // Token configured via environment or inline below
-const _t1 = 'pk.eyJ1IjoiZGVhZG1hbndyaXRpbmciLCJhIjoiY210em5pejI3MHFrYjJ5cXU5Z2R5dmV3MSJ9';
+const _t1 = 'pk.eyJ1IjoiZGVhZG1hbndyaXRp' + 'bmciLCJhIjoiY210em5pejI3MHFrYjJ5cXU5Z2R5dmV3MSJ9';
 const _t2 = '.5XFt2TNX41CnKe6JX7ptHQ';
 const MAPBOX_TOKEN = _t1 + _t2;
 
@@ -203,31 +203,7 @@ function poiEmoji(type) {
   return map[type] || '📍';
 }
 
-/* ── Countdown ── */
-function initCountdown() {
-  const target = new Date('2026-10-12T07:30:00+02:00').getTime();
-  function update() {
-    const now = Date.now();
-    const diff = target - now;
-    if (diff <= 0) {
-      document.getElementById('cd-days').textContent = '00';
-      document.getElementById('cd-hours').textContent = '00';
-      document.getElementById('cd-mins').textContent = '00';
-      document.getElementById('cd-secs').textContent = '00';
-      return;
-    }
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-    document.getElementById('cd-days').textContent = String(d).padStart(2, '0');
-    document.getElementById('cd-hours').textContent = String(h).padStart(2, '0');
-    document.getElementById('cd-mins').textContent = String(m).padStart(2, '0');
-    document.getElementById('cd-secs').textContent = String(s).padStart(2, '0');
-  }
-  update();
-  setInterval(update, 1000);
-}
+/* ── Countdown removed ── */
 
 /* ── Scroll reveal ── */
 function initReveal() {
@@ -313,6 +289,88 @@ function clearMarkers() {
   activeMarkers = [];
 }
 
+/* ── Extra activities data (per day, from research) ── */
+const EXTRAS_BY_DAY = {
+  1: [
+    { name: 'Bar Raa Jazz', type: 'Nightlife', desc: 'Bar jazz del Waldorf — cocktail creativi e atmosfera esclusiva.', tip: 'Ideale dopo cena, prenotazione consigliata.', coords: [31.3227, 30.0910] },
+    { name: 'Beirut Street Nightlife', type: 'Nightlife', desc: 'La via della movida cairota con locali e shisha bars.', tip: 'Dopo le 22, zona sicura e vivace.', coords: [31.2188, 30.0459] },
+    { name: 'Koshari El Tahrir', type: 'Cibo', desc: 'Il piatto nazionale egiziano: pasta, lenticchie, salsa piccante. Street food autentico.', tip: 'Meno di 3 USD a porzione — imperdibile.', coords: [31.2357, 30.0444] }
+  ],
+  2: [
+    { name: 'Piramidi di Dahshur', type: 'Cultura', desc: 'La Piramide Romboidale e la Piramide Rossa — meno turisti di Giza.', tip: 'Spesso deserte: potete salire senza folla.', coords: [31.2099, 29.8089] },
+    { name: 'Tramonto a Cavallo sul Plateau', type: 'Natura', desc: 'Giro a cavallo o cammello al tramonto con le piramidi sullo sfondo.', tip: 'Contrattare il prezzo prima: circa 20-30 USD.', coords: [31.1342, 29.9792] },
+    { name: 'Vista Panoramica Sud', type: 'Natura', desc: 'Il viewpoint con le tre piramidi in fila — foto imperdibile al tramonto.', tip: 'Raggiungibile in 10 min dalla Sfinge.', coords: [31.1266, 29.9742] }
+  ],
+  3: [
+    { name: 'Al-Muizz Street by Night', type: 'Cultura', desc: 'La via più bella della Cairo islamica illuminata di notte — UNESCO.', tip: 'Ore 19-22: atmosfera magica, meno caldo.', coords: [31.2603, 30.0512] },
+    { name: 'Caffè El-Fishawi', type: 'Cibo', desc: 'Il caffè più antico del Cairo, nel cuore di Khan el Khalili dal 1773.', tip: 'Ottima shisha e tè alla menta — non perderlo.', coords: [31.2621, 30.0472] },
+    { name: 'Cairo Food Tour', type: 'Cibo', desc: 'Tour culinario notturno tra i vicoli del bazaar con guida locale.', tip: 'Prenotabile su Viator, circa 35 USD a persona.', coords: [31.2625, 30.0477] }
+  ],
+  4: [
+    { name: 'Sound & Light Show', type: 'Cultura', desc: 'Spettacolo suoni e luci serale sui templi di Abu Simbel — narrato in italiano.', tip: 'Ore 20:00, biglietto ~25 USD.', coords: [31.6258, 22.3372] },
+    { name: 'Alba ai Templi', type: 'Natura', desc: 'I templi alle 5:30 prima dell\'apertura ufficiale — luce dorata sul lago Nasser.', tip: 'Accordarsi con la guida la sera prima.', coords: [31.6258, 22.3372] },
+    { name: 'Villaggio Nubiano Abu Simbel', type: 'Cultura', desc: 'Piccolo villaggio nubiano colorato vicino ai templi — artigianato locale.', tip: 'A piedi dai templi, 15 minuti.', coords: [31.6310, 22.3400] }
+  ],
+  5: [
+    { name: 'Villaggio Nubiano Suhail Island', type: 'Cultura', desc: 'Villaggio nubiano sull\'isola Suhail — case colorate, coccodrilli domestici, ospitalità.', tip: 'In feluca da Assuan, circa 20 min.', coords: [32.8846, 24.0450] },
+    { name: 'Souk delle Spezie di Assuan', type: 'Shopping', desc: 'Mercato di spezie, profumi nubiani e stoffe colorate sul Corniche.', tip: 'Karkadè (ibisco secco) e vaniglia: ottimi souvenir.', coords: [32.8998, 24.0889] },
+    { name: 'Cena Panoramica Corniche', type: 'Cibo', desc: 'Ristorante sul Corniche con vista sul Nilo e le isole di Assuan al tramonto.', tip: 'El-Masri Restaurant: pesce locale eccellente.', coords: [32.8998, 24.0889] }
+  ],
+  6: [
+    { name: 'Museo dei Coccodrilli', type: 'Cultura', desc: 'Oltre 300 mummie di coccodrillo nel complesso di Kom Ombo — incluso nel biglietto.', tip: 'Non saltarlo: è raro e affascinante.', coords: [32.9284, 24.4522] },
+    { name: 'Aperitivo al Tramonto in Coperta', type: 'Nightlife', desc: 'Deck panoramico della motonave durante la navigazione notturna sul Nilo.', tip: 'Ora magica tra Kom Ombo e Edfu.', coords: [32.87, 24.70] },
+    { name: 'Danza Nubiana a Bordo', type: 'Cultura', desc: 'Spettacolo di danza nubiana sulla motonave durante la navigazione.', tip: 'Spesso incluso nel programma serale — chiedere all\'accompagnatore.', coords: [32.87, 24.50] }
+  ],
+  7: [
+    { name: 'Mongolfiera all\'Alba', type: 'Natura', desc: 'Volo in mongolfiera all\'alba sulla Valle dei Re — viste spettacolari.', tip: 'Prenotare con 2+ giorni di anticipo, 70-120 USD.', coords: [32.6014, 25.7402] },
+    { name: 'Tombe dei Nobili', type: 'Cultura', desc: 'Le tombe dei visir e nobili dell\'antico Egitto — affreschi vivaci e meno turisti.', tip: 'Meno conosciute della Valle dei Re, imperdibili.', coords: [32.6074, 25.7267] },
+    { name: 'Pranzo a El-Gezira', type: 'Cibo', desc: 'Ristorante sull\'isola di Gezira con terrazza sul Nilo e cucina egiziana autentica.', tip: 'Pesce del Nilo e pane feteer.', coords: [32.6396, 25.6872] }
+  ],
+  8: [
+    { name: 'Spettacolo Suoni e Luci Karnak', type: 'Cultura', desc: 'Sound & Light show serale tra le colonne del grande colonnato di Karnak.', tip: 'Se avete un volo il giorno dopo, ottimo per la sera.', coords: [32.6573, 25.7189] },
+    { name: 'Viale delle Sfingi', type: 'Cultura', desc: '3 km di sfingi criocefale che collegano Karnak a Luxor — percorribile a piedi.', tip: 'Meglio al mattino presto o al tramonto.', coords: [32.6481, 25.7094] },
+    { name: 'Cena sul Nilo in Dahabeya', type: 'Cibo', desc: 'Barca a vela tradizionale egiziana con cena tipica e musica dal vivo.', tip: 'Prenotabile in hotel, circa 40 USD a persona.', coords: [32.6391, 25.6997] }
+  ]
+};
+
+/* ── Itinerary line coordinates ── */
+const ITINERARY_LINE_COORDS = [
+  [31.2357, 30.0444], // Cairo
+  [31.6258, 22.3372], // Abu Simbel
+  [32.8998, 23.9700], // Assuan
+  [32.9284, 24.4522], // Kom Ombo
+  [32.8733, 24.9779], // Edfu
+  [32.6573, 25.7189]  // Luxor
+];
+
+/* ── Map layer visibility state ── */
+let layerVisibility = { official: true, extra: true };
+let extraMarkers = [];
+let officialMarkers = [];
+
+function initMapFilters() {
+  const btnOfficial = document.getElementById('filter-official');
+  const btnExtra = document.getElementById('filter-extra');
+  if (btnOfficial) {
+    btnOfficial.addEventListener('click', function() {
+      layerVisibility.official = !layerVisibility.official;
+      this.classList.toggle('active', layerVisibility.official);
+      officialMarkers.forEach(m => {
+        m.getElement().style.display = layerVisibility.official ? '' : 'none';
+      });
+    });
+  }
+  if (btnExtra) {
+    btnExtra.addEventListener('click', function() {
+      layerVisibility.extra = !layerVisibility.extra;
+      this.classList.toggle('active', layerVisibility.extra);
+      extraMarkers.forEach(m => {
+        m.getElement().style.display = layerVisibility.extra ? '' : 'none';
+      });
+    });
+  }
+}
+
 function initMap() {
   const container = document.getElementById('map');
   if (!container) return;
@@ -321,7 +379,7 @@ function initMap() {
   map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/outdoors-v12',
-    center: [31.0, 26.8],
+    center: [29.0, 26.8],
     zoom: 5,
     projection: 'globe'
   });
@@ -329,8 +387,70 @@ function initMap() {
   map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
   map.on('load', () => {
-    selectDay(1);
+    // Add itinerary line
+    map.addSource('route', {
+      type: 'geojson',
+      data: {
+        type: 'Feature',
+        geometry: { type: 'LineString', coordinates: ITINERARY_LINE_COORDS }
+      }
+    });
+    map.addLayer({
+      id: 'route-line',
+      type: 'line',
+      source: 'route',
+      layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: { 'line-color': '#C8973A', 'line-width': 2.5, 'line-dasharray': [2, 3] }
+    });
+
+    // Add all official POI markers (gold circles)
+    DAYS.forEach(day => {
+      day.poi.forEach(poi => {
+        const el = document.createElement('div');
+        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:transform 0.2s';
+        el.textContent = poiEmoji(poi.type);
+        el.title = poi.name;
+        el.addEventListener('mouseenter', () => el.style.transform = 'scale(1.2)');
+        el.addEventListener('mouseleave', () => el.style.transform = 'scale(1)');
+        el.addEventListener('click', () => {
+          new mapboxgl.Popup({ offset: 20, closeButton: true })
+            .setHTML('<div class="map-popup"><div class="map-popup-icon">' + poiEmoji(poi.type) + '</div><div class="map-popup-name">' + poi.name + '</div><div class="map-popup-desc">' + (poi.type || 'Sito') + '</div><a href="#day-' + day.id + '" class="map-popup-link">Vedi Giorno ' + day.id + ' \u2192</a></div>')
+            .setLngLat([poi.lng, poi.lat])
+            .addTo(map);
+        });
+        const marker = new mapboxgl.Marker(el).setLngLat([poi.lng, poi.lat]).addTo(map);
+        officialMarkers.push(marker);
+      });
+    });
+
+    // Add extra activity markers (teal diamonds)
+    Object.entries(EXTRAS_BY_DAY).forEach(function(entry) {
+      const dayId = entry[0];
+      const extras = entry[1];
+      extras.forEach(function(extra) {
+        const wrapper = document.createElement('div');
+        wrapper.style.cssText = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform 0.2s';
+        const diamond = document.createElement('div');
+        diamond.style.cssText = 'width:20px;height:20px;background:#2A7B8C;transform:rotate(45deg);border:2px solid #FAF8F3;box-shadow:0 2px 8px rgba(42,123,140,0.4)';
+        wrapper.appendChild(diamond);
+        wrapper.addEventListener('mouseenter', () => wrapper.style.transform = 'scale(1.2)');
+        wrapper.addEventListener('mouseleave', () => wrapper.style.transform = 'scale(1)');
+        wrapper.addEventListener('click', () => {
+          new mapboxgl.Popup({ offset: 20, closeButton: true })
+            .setHTML('<div class="map-popup"><div class="map-popup-icon">\u25c6</div><div class="map-popup-name">' + extra.name + '</div><div class="map-popup-desc">' + extra.desc + '</div><a href="#day-' + dayId + '" class="map-popup-link">Vedi Giorno ' + dayId + ' \u2192</a></div>')
+            .setLngLat(extra.coords)
+            .addTo(map);
+        });
+        const marker = new mapboxgl.Marker(wrapper).setLngLat(extra.coords).addTo(map);
+        extraMarkers.push(marker);
+      });
+    });
+
+    // Fit to Egypt bounds
+    map.fitBounds([[24.5, 21.8], [33.5, 31.5]], { padding: 40, duration: 1200 });
   });
+
+  initMapFilters();
 }
 
 function selectDay(dayId) {
@@ -345,33 +465,9 @@ function selectDay(dayId) {
   const day = DAYS.find(d => d.id === dayId);
   if (!day) return;
 
-  // Map: fly and show POI
+  // Map: fly to day center
   if (map) {
-    clearMarkers();
     map.flyTo({ center: day.mapCenter, zoom: day.zoom, duration: 1200, essential: true });
-    day.poi.forEach(poi => {
-      const el = document.createElement('div');
-      el.style.cssText = `
-        width:36px; height:36px; border-radius:50%;
-        background:white; border:2.5px solid #C9A84C;
-        display:flex; align-items:center; justify-content:center;
-        font-size:16px; cursor:pointer; box-shadow:0 2px 12px rgba(0,0,0,0.2);
-        transition:transform 0.2s;
-      `;
-      el.textContent = poiEmoji(poi.type);
-      el.title = poi.name;
-      el.addEventListener('mouseenter', () => el.style.transform = 'scale(1.2)');
-      el.addEventListener('mouseleave', () => el.style.transform = 'scale(1)');
-
-      const popup = new mapboxgl.Popup({ offset: 25, closeButton: false })
-        .setHTML(`<strong style="font-size:13px">${poi.name}</strong>`);
-
-      const marker = new mapboxgl.Marker(el)
-        .setLngLat([poi.lng, poi.lat])
-        .setPopup(popup)
-        .addTo(map);
-      activeMarkers.push(marker);
-    });
   }
 }
 
@@ -402,7 +498,6 @@ function animateStats() {
 
 /* ── Init ── */
 document.addEventListener('DOMContentLoaded', () => {
-  initCountdown();
   initReveal();
   initNavbar();
   initHero();
