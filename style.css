@@ -361,15 +361,15 @@ h1.hero-title {
 
 /* Parallax Divider */
 .parallax-divider {
-  position: relative; height: 420px;
+  position: relative; height: 480px;
   overflow: hidden; margin: 0;
 }
 .parallax-img {
-  position: absolute; top: -30%; left: 0;
-  width: 100%; height: 160%;
+  position: absolute; top: -40%; left: 0;
+  width: 100%; height: 180%;
   background-size: cover; background-position: center;
+  will-change: transform;
 }
-/* old rules removed — using new parallax-divider / parallax-img above */
 
 .parallax-label {
   position: absolute; bottom: 28px; left: 50%;
@@ -731,7 +731,11 @@ footer {
 /* Mapbox marker fix — prevent transform drift on zoom */
 .mapboxgl-marker {
   will-change: transform;
-  transform-origin: center center;
+  transform-origin: 0 0 !important;
+}
+.mapboxgl-marker > * {
+  position: static !important;
+  transform: none !important;
 }
 
 .scroll-hint { display: none !important; }
