@@ -538,6 +538,7 @@ h2.day-article-city {
   gap: 14px;
   align-items: flex-start;
 }
+.monument-item + .monument-item { margin-top: 12px; }
 
 .monument-photo {
   flex: 0 0 120px;
