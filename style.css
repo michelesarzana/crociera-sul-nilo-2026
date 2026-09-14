@@ -814,15 +814,12 @@ footer {
 
 /* ── Extra card & dip links ── */
 .extra-card-link, .dip-extra-link, .monument-link {
-  display: inline-block; margin-top: 6px;
+  display: block; margin-top: 6px;
   font-size: 11px; color: var(--teal);
   text-decoration: none; letter-spacing: 0.05em;
   max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
   word-break: break-word;
-  vertical-align: middle;
 }
 .extra-card-link:hover, .dip-extra-link:hover, .monument-link:hover { text-decoration: underline; }
 
