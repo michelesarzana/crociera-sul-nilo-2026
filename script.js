@@ -462,23 +462,8 @@ function initNavbar() {
 function initHero() {
   var hero = document.getElementById('hero');
   if (!hero) return;
+  // Small delay so the browser has painted before the class is added
   setTimeout(function() { hero.classList.add('loaded'); }, 100);
-
-  var bg = hero.querySelector('.hero-bg');
-  if (!bg) return;
-
-  // Parallax only while hero is visible — use requestAnimationFrame to avoid
-  // conflicting with the heroKenBurns CSS animation on the same element.
-  // We apply parallax as a CSS variable to avoid transform collisions.
-  function heroParallax() {
-    var scrollY = window.scrollY;
-    var heroH = hero.offsetHeight;
-    if (scrollY > heroH) return; // hero not visible, skip
-    var offset = scrollY * 0.25;
-    bg.style.marginTop = offset + 'px';
-    bg.style.height = 'calc(100% + ' + Math.abs(offset) + 'px)';
-  }
-  window.addEventListener('scroll', heroParallax, { passive: true });
 }
 
 /* ── animateStats ── */
