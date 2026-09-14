@@ -261,18 +261,17 @@ h1.hero-title {
   overflow-x: auto; -webkit-overflow-scrolling: touch;
   padding-bottom: 12px; margin-bottom: 20px;
   scrollbar-width: none;
-  /* prevent pills from forcing the column wider than its parent */
   width: 100%;
   box-sizing: border-box;
 }
 .day-pills-wrap::-webkit-scrollbar { display: none; }
 
-.day-pills { display: flex; gap: 6px; flex-wrap: wrap; }
+.day-pills { display: flex; gap: 4px; flex-wrap: nowrap; }
 
 .day-btn {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 12px; letter-spacing: 0.12em;
-  padding: 8px 14px;
+  font-size: 11px; letter-spacing: 0.08em;
+  padding: 7px 10px;
   border: 1px solid var(--gold-line);
   background: transparent; color: var(--text-3);
   cursor: pointer; white-space: nowrap; transition: all 0.25s;
