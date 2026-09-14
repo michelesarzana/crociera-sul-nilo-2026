@@ -267,7 +267,7 @@ h1.hero-title {
 }
 .day-pills-wrap::-webkit-scrollbar { display: none; }
 
-.day-pills { display: flex; gap: 6px; flex-wrap: nowrap; }
+.day-pills { display: flex; gap: 6px; flex-wrap: wrap; }
 
 .day-btn {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -301,6 +301,7 @@ h1.hero-title {
   font-size: 11px; letter-spacing: 0.1em;
   color: var(--white); background: var(--gold);
   padding: 4px 10px; border-radius: 2px; white-space: nowrap;
+  margin-top: 6px; display: inline-block;
 }
 
 .dip-highlight {
