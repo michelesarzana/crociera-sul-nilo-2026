@@ -361,16 +361,15 @@ h1.hero-title {
 
 /* Parallax Divider */
 .parallax-divider {
-  position: relative; height: 320px;
+  position: relative; height: 420px;
   overflow: hidden; margin: 0;
 }
-
 .parallax-img {
-  position: absolute; top: -20%; left: 0;
-  width: 100%; height: 140%;
+  position: absolute; top: -30%; left: 0;
+  width: 100%; height: 160%;
   background-size: cover; background-position: center;
-  /* NO background-attachment:fixed — broken on mobile */
 }
+/* old rules removed — using new parallax-divider / parallax-img above */
 
 .parallax-label {
   position: absolute; bottom: 28px; left: 50%;
