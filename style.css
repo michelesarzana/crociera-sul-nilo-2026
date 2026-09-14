@@ -338,22 +338,52 @@ h1.hero-title {
 .dip-extra-tip { font-size: 11px; color: var(--text-3); line-height: 1.5; }
 
 /* Map Popup */
+.mapboxgl-popup {
+  z-index: 100 !important;
+}
 .mapboxgl-popup-content {
   background: var(--white);
   border: 1px solid var(--gold-line);
-  border-radius: 4px;
-  box-shadow: 0 4px 20px rgba(28,18,8,0.12);
-  padding: 10px 14px;
+  border-radius: 6px;
+  box-shadow: 0 6px 28px rgba(28,18,8,0.18);
+  padding: 12px 36px 12px 14px;
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 13px;
+  min-width: 160px;
+  max-width: 220px;
+  position: relative;
+}
+/* Mapbox default close button — reposition inside padding */
+.mapboxgl-popup-close-button {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 0;
+}
+.mapboxgl-popup-close-button:hover {
+  background: rgba(0,0,0,0.07);
+  color: var(--text);
 }
 
-.map-popup-name { font-weight: 500; color: var(--text); margin-bottom: 4px; }
+.map-popup-name { font-weight: 600; color: var(--text); margin-bottom: 4px; font-size: 13px; }
 .map-popup-link {
-  display: inline-block; margin-top: 8px;
-  font-size: 12px; color: var(--gold);
-  text-decoration: none; letter-spacing: 0.05em;
+  display: block; margin-top: 6px;
+  font-size: 11px; color: var(--gold);
+  text-decoration: none; letter-spacing: 0.04em;
 }
+.map-popup-link:hover { text-decoration: underline; }
 
 
 /* ── SEZIONE ITINERARIO ── */
