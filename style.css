@@ -257,7 +257,7 @@ h1.hero-title {
 /* Day Pills */
 .day-pills-wrap {
   overflow-x: auto; -webkit-overflow-scrolling: touch;
-  padding-bottom: 12px; margin-bottom: 20px;
+  padding-bottom: 12px; padding-right: 16px; margin-bottom: 20px;
   scrollbar-width: none;
 }
 .day-pills-wrap::-webkit-scrollbar { display: none; }
@@ -570,7 +570,7 @@ h2.day-article-city {
   display: flex;
   flex-direction: column;
   height: auto;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .extra-card-type {
@@ -607,6 +607,48 @@ h2.day-article-city {
   margin-bottom: 8px;
   white-space: normal;
   word-wrap: break-word;
+}
+
+/* Monument photo */
+.monument-photo {
+  margin-top: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+.monument-photo img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease, filter 0.35s ease;
+  filter: brightness(0.93);
+}
+.monument-photo:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.04);
+}
+.monument-photo-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s;
+  background: rgba(0,0,0,0.2);
+}
+.monument-photo:hover .monument-photo-overlay {
+  opacity: 1;
+}
+.monument-photo-icon {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
 }
 
 /* Day Photo Frame */
