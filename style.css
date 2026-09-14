@@ -543,7 +543,7 @@ h2.day-article-city {
   border-left: 3px solid rgba(200,151,58,0.3);
   display: flex;
   gap: 14px;
-  align-items: flex-start;
+  align-items: center;
 }
 .monument-item + .monument-item { margin-top: 12px; }
 
