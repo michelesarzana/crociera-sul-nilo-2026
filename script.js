@@ -466,10 +466,17 @@ function initHero() {
 
   var bg = hero.querySelector('.hero-bg');
   if (!bg) return;
+
+  // Parallax only while hero is visible — use requestAnimationFrame to avoid
+  // conflicting with the heroKenBurns CSS animation on the same element.
+  // We apply parallax as a CSS variable to avoid transform collisions.
   function heroParallax() {
     var scrollY = window.scrollY;
-    var offset = scrollY * 0.3;
-    bg.style.transform = 'translateY(' + offset + 'px)';
+    var heroH = hero.offsetHeight;
+    if (scrollY > heroH) return; // hero not visible, skip
+    var offset = scrollY * 0.25;
+    bg.style.marginTop = offset + 'px';
+    bg.style.height = 'calc(100% + ' + Math.abs(offset) + 'px)';
   }
   window.addEventListener('scroll', heroParallax, { passive: true });
 }
