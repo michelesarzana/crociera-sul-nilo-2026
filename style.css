@@ -162,7 +162,7 @@ h1.hero-title {
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   color: rgba(255,253,247,0.6);
   font-size: 11px; letter-spacing: 0.12em;
-  z-index: 10;
+  z-index: 3;
   pointer-events: none;
   white-space: nowrap;
 }
@@ -225,7 +225,7 @@ h1.hero-title {
 
 .map-col {
   position: sticky; top: 64px;
-  height: calc(100vh - 80px); max-height: 580px;
+  height: calc(100vh - 80px); max-height: none;
   overflow: hidden;
 }
 
@@ -402,6 +402,9 @@ h1.hero-title {
 }
 
 .day-article-inner.reverse { grid-template-columns: 380px 1fr; }
+
+.day-article-inner .day-photo-frame { order: 0; }
+.day-article-inner .day-article-text { order: 0; }
 
 .day-article-meta {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -601,15 +604,17 @@ footer {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
   }
-  .map-col { position: static; height: 320px; max-height: none; }
-  #map { min-height: 320px; }
+  .map-col { position: static; height: 50vw; min-height: 280px; max-height: 400px; }
+  #map { width: 100%; height: 100%; min-height: 280px; }
   .map-section-intro { padding: 0; margin-bottom: 20px; }
   .detail-col { padding: 20px 16px; }
   .day-pills-wrap { padding-bottom: 8px; }
 
   .day-article-inner,
   .day-article-inner.reverse { grid-template-columns: 1fr; }
+  .day-article-inner .day-photo-frame,
   .day-article-inner.reverse .day-photo-frame { order: 2; }
+  .day-article-inner .day-article-text,
   .day-article-inner.reverse .day-article-text { order: 1; }
 
   .day-photo-frame img { height: 280px; }
