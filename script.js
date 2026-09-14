@@ -346,13 +346,14 @@ function initMap() {
         el.title = poi.name;
         el.addEventListener('mouseenter', function() { el.style.boxShadow = '0 4px 20px rgba(200,151,58,0.6)'; el.style.borderColor = '#C8973A'; });
         el.addEventListener('mouseleave', function() { el.style.boxShadow = '0 2px 12px rgba(0,0,0,0.18)'; });
-        el.addEventListener('click', function() {
-          new mapboxgl.Popup({ offset: 20, closeButton: true })
-            .setHTML('<div class="map-popup"><div class="map-popup-name">' + poi.name + '</div><a href="#day-' + day.id + '" class="map-popup-link">Vedi Giorno ' + day.id + ' →</a></div>')
-            .setLngLat([poi.lng, poi.lat])
-            .addTo(map);
-        });
-        var marker = new mapboxgl.Marker({ element: el, anchor: 'center' }).setLngLat([poi.lng, poi.lat]).addTo(map);
+        el.style.cursor = 'pointer';
+        var popup = new mapboxgl.Popup({ offset: 25, closeButton: true })
+          .setHTML('<div class="map-popup"><div class="map-popup-name">' + poi.name + '</div><a href="#day-' + day.id + '" class="map-popup-link">Vedi Giorno ' + day.id + ' →</a></div>');
+        var marker = new mapboxgl.Marker({ element: el, anchor: 'center' })
+          .setLngLat([poi.lng, poi.lat])
+          .setPopup(popup)
+          .addTo(map);
+        marker.getElement().addEventListener('click', function() { marker.togglePopup(); });
         officialMarkers.push(marker);
       });
     });
@@ -367,18 +368,19 @@ function initMap() {
         wrapper.title = extra.name;
         wrapper.addEventListener('mouseenter', function() { wrapper.style.boxShadow = '0 4px 16px rgba(42,123,140,0.55)'; wrapper.style.borderColor = '#2A7B8C'; });
         wrapper.addEventListener('mouseleave', function() { wrapper.style.boxShadow = '0 2px 8px rgba(42,123,140,0.3)'; });
-        wrapper.addEventListener('click', function() {
-          new mapboxgl.Popup({ offset: 20, closeButton: true })
-            .setHTML('<div class="map-popup">' +
-              '<div class="map-popup-name">' + extra.name + '</div>' +
-              '<div style="font-size:11px;color:#8B7355;margin-top:2px">' + (extra.type || '') + '</div>' +
-              (extra.link ? '<a href="' + extra.link + '" target="_blank" rel="noopener" class="map-popup-link">Approfondisci →</a>' : '') +
-              '<a href="#day-' + dayId + '" class="map-popup-link">Vedi Giorno ' + dayId + ' →</a>' +
-              '</div>')
-            .setLngLat(extra.coords)
-            .addTo(map);
-        });
-        var marker = new mapboxgl.Marker({ element: wrapper, anchor: 'center' }).setLngLat(extra.coords).addTo(map);
+        wrapper.style.cursor = 'pointer';
+        var popup = new mapboxgl.Popup({ offset: 25, closeButton: true })
+          .setHTML('<div class="map-popup">' +
+            '<div class="map-popup-name">' + extra.name + '</div>' +
+            '<div style="font-size:11px;color:#8B7355;margin-top:2px">' + (extra.type || '') + '</div>' +
+            (extra.link ? '<a href="' + extra.link + '" target="_blank" rel="noopener" class="map-popup-link">Approfondisci →</a>' : '') +
+            '<a href="#day-' + dayId + '" class="map-popup-link">Vedi Giorno ' + dayId + ' →</a>' +
+            '</div>');
+        var marker = new mapboxgl.Marker({ element: wrapper, anchor: 'center' })
+          .setLngLat(extra.coords)
+          .setPopup(popup)
+          .addTo(map);
+        marker.getElement().addEventListener('click', function() { marker.togglePopup(); });
         extraMarkers.push(marker);
       });
     });
@@ -492,9 +494,46 @@ function animateStats() {
   stats.forEach(function(el) { obs.observe(el); });
 }
 
+/* ── Lightbox ── */
+window.openLightbox = function(src, caption) {
+  var lb = document.getElementById('lightbox');
+  var img = document.getElementById('lightbox-img');
+  var cap = document.getElementById('lightbox-caption');
+  if (!lb || !img) return;
+  img.src = src;
+  img.alt = caption || '';
+  if (cap) cap.textContent = caption || '';
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeLightbox = function() {
+  var lb = document.getElementById('lightbox');
+  if (!lb) return;
+  lb.classList.remove('active');
+  document.body.style.overflow = '';
+  setTimeout(function() {
+    var img = document.getElementById('lightbox-img');
+    if (img) img.src = '';
+  }, 250);
+};
+
 /* ── DOMContentLoaded ── */
 document.addEventListener('DOMContentLoaded', function() {
   initReveal();
+
+  // Lightbox
+  var lb = document.getElementById('lightbox');
+  var lbClose = document.getElementById('lightbox-close');
+  if (lb) {
+    lb.addEventListener('click', function(e) {
+      if (e.target === lb || e.target.id === 'lightbox-caption') window.closeLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') window.closeLightbox();
+    });
+  }
+  if (lbClose) lbClose.addEventListener('click', window.closeLightbox);
   initNavbar();
   initHero();
   initParallax();
