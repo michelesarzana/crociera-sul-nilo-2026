@@ -384,6 +384,53 @@ h1.hero-title {
   border-radius: 2px; white-space: nowrap;
 }
 
+/* ══════════════════════════════
+   ITINERARY DIVIDER
+══════════════════════════════ */
+.itinerary-divider {
+  background: #0d1117;
+  padding: 64px 24px 72px;
+  text-align: center;
+}
+
+.itinerary-divider-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.itinerary-divider-line {
+  display: block;
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(200,151,58,0.5), transparent);
+}
+
+.itinerary-divider-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.itinerary-divider-icon {
+  color: #C8973A;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.itinerary-divider-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 700;
+  color: #F0E6C8;
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 1.2;
+}
+
 /* Day Article */
 .day-article {
   position: relative; padding: 80px 0;
