@@ -341,8 +341,11 @@ function initMap() {
     DAYS.forEach(function(day) {
       day.poi.forEach(function(poi) {
         var el = document.createElement('div');
-        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:box-shadow 0.2s,border-color 0.2s;z-index:2';
-        el.textContent = poiEmoji(poi.type);
+        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:box-shadow 0.2s,border-color 0.2s;z-index:2;flex-shrink:0;';
+        var span = document.createElement('span');
+        span.style.cssText = 'display:block;line-height:1;pointer-events:none;';
+        span.textContent = poiEmoji(poi.type);
+        el.appendChild(span);
         el.title = poi.name;
         el.addEventListener('mouseenter', function() { el.style.boxShadow = '0 4px 20px rgba(200,151,58,0.6)'; el.style.borderColor = '#C8973A'; });
         el.addEventListener('mouseleave', function() { el.style.boxShadow = '0 2px 12px rgba(0,0,0,0.18)'; });
@@ -363,8 +366,11 @@ function initMap() {
       var extras = EXTRAS_BY_DAY[dayId];
       extras.forEach(function(extra) {
         var wrapper = document.createElement('div');
-        wrapper.style.cssText = 'width:28px;height:28px;border-radius:50%;background:white;border:2px solid #2A7B8C;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;pointer-events:all;box-shadow:0 2px 8px rgba(42,123,140,0.3);transition:box-shadow 0.2s,border-color 0.2s;z-index:1';
-        wrapper.textContent = extra.type ? poiEmoji(extra.type) : '⭐';
+        wrapper.style.cssText = 'width:28px;height:28px;border-radius:50%;background:white;border:2px solid #2A7B8C;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;pointer-events:all;box-shadow:0 2px 8px rgba(42,123,140,0.3);transition:box-shadow 0.2s,border-color 0.2s;z-index:1;flex-shrink:0;';
+        var wspan = document.createElement('span');
+        wspan.style.cssText = 'display:block;line-height:1;pointer-events:none;';
+        wspan.textContent = extra.type ? poiEmoji(extra.type) : '⭐';
+        wrapper.appendChild(wspan);
         wrapper.title = extra.name;
         wrapper.addEventListener('mouseenter', function() { wrapper.style.boxShadow = '0 4px 16px rgba(42,123,140,0.55)'; wrapper.style.borderColor = '#2A7B8C'; });
         wrapper.addEventListener('mouseleave', function() { wrapper.style.boxShadow = '0 2px 8px rgba(42,123,140,0.3)'; });
@@ -408,12 +414,12 @@ function initMapFilters() {
       if (type === 'official') {
         layerVisibility.official = btn.classList.contains('active');
         officialMarkers.forEach(function(m) {
-          m.getElement().style.display = layerVisibility.official ? '' : 'none';
+          m.getElement().style.display = layerVisibility.official ? 'flex' : 'none';
         });
       } else if (type === 'extra') {
         layerVisibility.extra = btn.classList.contains('active');
         extraMarkers.forEach(function(m) {
-          m.getElement().style.display = layerVisibility.extra ? '' : 'none';
+          m.getElement().style.display = layerVisibility.extra ? 'flex' : 'none';
         });
       }
     });
