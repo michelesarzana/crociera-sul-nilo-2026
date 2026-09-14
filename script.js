@@ -79,7 +79,7 @@ const DAYS = [
     ],
     poi: [
       { id: 'aswan_apt', name: 'Aeroporto di Aswan', type: 'airport', lng: 32.8199, lat: 23.9644 },
-      { id: 'seti_hotel', name: 'Hotel Seti Abu Simbel', type: 'hotel', lng: 31.6162, lat: 22.3457 },
+      { id: 'seti_hotel', name: 'Hotel Seti Abu Simbel', type: 'hotel', lng: 31.6260, lat: 22.3385 },
       { id: 'abu_simbel', name: 'Templi di Abu Simbel', type: 'site', lng: 31.6258, lat: 22.3372 }
     ]
   },
@@ -274,7 +274,7 @@ function initParallax() {
       var vh = window.innerHeight;
       if (rect.bottom < 0 || rect.top > vh) return;
       var progress = (vh - rect.top) / (vh + rect.height);
-      var offset = (progress - 0.5) * 80;
+      var offset = (progress - 0.5) * 160;
       img.style.transform = 'translateY(' + offset + 'px)';
     });
   }
