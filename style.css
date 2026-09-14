@@ -302,6 +302,7 @@ h1.hero-title {
   color: var(--white); background: var(--gold);
   padding: 4px 10px; border-radius: 2px; white-space: nowrap;
   margin-top: 6px; display: inline-block;
+  margin-left: 12px; flex-shrink: 0; align-self: flex-start;
 }
 
 .dip-highlight {
