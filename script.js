@@ -175,7 +175,6 @@ const EXTRAS_BY_DAY = {
     { name: 'Cairo Food Tour', type: 'Cibo', desc: 'Tour culinario notturno tra i vicoli del bazaar con guida locale.', tip: 'Prenotabile su Viator, circa 35 USD a persona.', coords: [31.2625, 30.0477] }
   ],
   4: [
-    { name: 'Sound & Light Show', type: 'Cultura', desc: 'Spettacolo suoni e luci serale sui templi di Abu Simbel — narrato in italiano.', tip: 'Ore 20:00, biglietto ~25 USD.', coords: [31.6258, 22.3372], link: 'https://it.wikipedia.org/wiki/Abu_Simbel' },
     { name: 'Alba ai Templi', type: 'Natura', desc: 'I templi alle 5:30 prima dell\'apertura ufficiale — luce dorata sul lago Nasser.', tip: 'Accordarsi con la guida la sera prima.', coords: [31.6258, 22.3372] },
     { name: 'Villaggio Nubiano Abu Simbel', type: 'Cultura', desc: 'Piccolo villaggio nubiano colorato vicino ai templi — artigianato locale.', tip: 'A piedi dai templi, 15 minuti.', coords: [31.6310, 22.3400], link: 'https://en.wikipedia.org/wiki/Nubian_people' }
   ],
@@ -274,7 +273,7 @@ function initParallax() {
       var vh = window.innerHeight;
       if (rect.bottom < 0 || rect.top > vh) return;
       var progress = (vh - rect.top) / (vh + rect.height);
-      var offset = (progress - 0.5) * 160;
+      var offset = (progress - 0.5) * 240;
       img.style.transform = 'translateY(' + offset + 'px)';
     });
   }
@@ -342,7 +341,7 @@ function initMap() {
     DAYS.forEach(function(day) {
       day.poi.forEach(function(poi) {
         var el = document.createElement('div');
-        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:box-shadow 0.2s,border-color 0.2s;position:relative;z-index:2';
+        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:box-shadow 0.2s,border-color 0.2s';
         el.textContent = poiEmoji(poi.type);
         el.title = poi.name;
         el.addEventListener('mouseenter', function() { el.style.boxShadow = '0 4px 20px rgba(200,151,58,0.6)'; el.style.borderColor = '#C8973A'; });
@@ -363,12 +362,12 @@ function initMap() {
       var extras = EXTRAS_BY_DAY[dayId];
       extras.forEach(function(extra) {
         var wrapper = document.createElement('div');
-        wrapper.style.cssText = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;z-index:1;pointer-events:all';
+        wrapper.style.cssText = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;pointer-events:all';
         var diamond = document.createElement('div');
-        diamond.style.cssText = 'width:18px;height:18px;background:#2A7B8C;transform:rotate(45deg);border:2px solid #FAF8F3;box-shadow:0 2px 8px rgba(42,123,140,0.4);transition:transform 0.2s';
+        diamond.style.cssText = 'width:16px;height:16px;background:#2A7B8C;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);border:0;box-shadow:0 2px 8px rgba(42,123,140,0.4);transition:transform 0.2s';
         wrapper.appendChild(diamond);
-        wrapper.addEventListener('mouseenter', function() { diamond.style.transform = 'rotate(45deg) scale(1.3)'; });
-        wrapper.addEventListener('mouseleave', function() { diamond.style.transform = 'rotate(45deg) scale(1)'; });
+        wrapper.addEventListener('mouseenter', function() { diamond.style.transform = 'scale(1.3)'; });
+        wrapper.addEventListener('mouseleave', function() { diamond.style.transform = 'scale(1)'; });
         wrapper.addEventListener('click', function() {
           new mapboxgl.Popup({ offset: 20, closeButton: true })
             .setHTML('<div class="map-popup">' +
