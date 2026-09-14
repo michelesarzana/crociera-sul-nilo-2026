@@ -341,7 +341,7 @@ function initMap() {
     DAYS.forEach(function(day) {
       day.poi.forEach(function(poi) {
         var el = document.createElement('div');
-        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:box-shadow 0.2s,border-color 0.2s';
+        el.style.cssText = 'width:34px;height:34px;border-radius:50%;background:white;border:2.5px solid #C8973A;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;box-shadow:0 2px 12px rgba(0,0,0,0.18);transition:box-shadow 0.2s,border-color 0.2s;z-index:2';
         el.textContent = poiEmoji(poi.type);
         el.title = poi.name;
         el.addEventListener('mouseenter', function() { el.style.boxShadow = '0 4px 20px rgba(200,151,58,0.6)'; el.style.borderColor = '#C8973A'; });
@@ -357,17 +357,16 @@ function initMap() {
       });
     });
 
-    // Extra markers (teal diamonds)
+    // Extra markers (teal circles)
     Object.keys(EXTRAS_BY_DAY).forEach(function(dayId) {
       var extras = EXTRAS_BY_DAY[dayId];
       extras.forEach(function(extra) {
         var wrapper = document.createElement('div');
-        wrapper.style.cssText = 'width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;pointer-events:all';
-        var diamond = document.createElement('div');
-        diamond.style.cssText = 'width:16px;height:16px;background:#2A7B8C;clip-path:polygon(50% 0%,100% 50%,50% 100%,0% 50%);border:0;box-shadow:0 2px 8px rgba(42,123,140,0.4);transition:transform 0.2s';
-        wrapper.appendChild(diamond);
-        wrapper.addEventListener('mouseenter', function() { diamond.style.transform = 'scale(1.3)'; });
-        wrapper.addEventListener('mouseleave', function() { diamond.style.transform = 'scale(1)'; });
+        wrapper.style.cssText = 'width:28px;height:28px;border-radius:50%;background:white;border:2px solid #2A7B8C;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;pointer-events:all;box-shadow:0 2px 8px rgba(42,123,140,0.3);transition:box-shadow 0.2s,border-color 0.2s;z-index:1';
+        wrapper.textContent = extra.type ? poiEmoji(extra.type) : '⭐';
+        wrapper.title = extra.name;
+        wrapper.addEventListener('mouseenter', function() { wrapper.style.boxShadow = '0 4px 16px rgba(42,123,140,0.55)'; wrapper.style.borderColor = '#2A7B8C'; });
+        wrapper.addEventListener('mouseleave', function() { wrapper.style.boxShadow = '0 2px 8px rgba(42,123,140,0.3)'; });
         wrapper.addEventListener('click', function() {
           new mapboxgl.Popup({ offset: 20, closeButton: true })
             .setHTML('<div class="map-popup">' +
