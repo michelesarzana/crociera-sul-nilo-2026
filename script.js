@@ -387,11 +387,13 @@ function initMap() {
 
     // Fit to Egypt
     map.fitBounds([[24.5, 21.8], [33.5, 31.5]], { padding: 40, duration: 1200 });
-    // Forza resize dopo montaggio (fix mobile)
-    setTimeout(function() {
-      map.resize();
-      map.fitBounds([[24.5, 21.8], [33.5, 31.5]], { padding: 40, duration: 0 });
-    }, 300);
+    // Resize ripetuto: il container sticky può non avere altezza definita al primo paint
+    var resizeAttempts = [100, 400, 900];
+    resizeAttempts.forEach(function(delay) {
+      setTimeout(function() {
+        map.resize();
+      }, delay);
+    });
   });
 
   initMapFilters();
